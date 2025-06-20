@@ -1,0 +1,2068 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Destinations - Marwa Safaris</title>
+      <meta name="description" content="Discover the breathtaking destinations Marwa Safaris operates in, from the Maasai Mara to Amboseli National Park.">
+      <!-- Google Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+      <style type="text/css">
+         :root {
+         --font-body: 'Lato', sans-serif;
+         }
+         body, h1, h2, h3, h4, h5, h6, .font-display, button, [type='button'], [type='reset'], [type='submit'] {
+         font-family: var(--font-body);
+         }
+      </style>
+      <!-- Tailwind CSS v4 & Alpine.js v3 -->
+      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+      <script defer src="https://unpkg.com/alpinejs@3.14.9/dist/cdn.min.js"></script>
+      <!-- Custom Stylesheet -->
+      <style type="text/tailwindcss">
+         /* Custom Animations */
+         @keyframes fadeInUp {
+         from {
+         opacity: 0;
+         transform: translateY(20px);
+         }
+         to {
+         opacity: 1;
+         transform: translateY(0);
+         }
+         }
+         .animate-fade-in-up {
+         animation: fadeInUp 0.8s ease-out forwards;
+         }
+         @keyframes bounce-horizontal {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(4px); }
+         }
+         .animate-bounce-horizontal {
+            animation: bounce-horizontal 1s infinite;
+         }
+         @theme {
+         /* Font Family */
+         --font-sans: 'Lato', sans-serif;
+         --font-serif: 'Lato', serif;
+         --font-mono: 'Lato', monospace;
+         /* Color Palette */
+         --color-primary: #0B2C53;      /* Deep Navy Blue */
+         --color-secondary: #F4A300;   /* Vibrant Orange */
+         --color-accent-yellow: #FFC700;  /* Golden Yellow */
+         --color-accent-blue: #2D90D5;    /* Sky Blue */
+         --color-neutral-base-white: #FFFFFF;
+         --color-neutral-base-gray: #F2F2F2;
+         --color-text-primary: #333333;   /* Charcoal Gray */
+         --color-text-secondary: #666666; /* Medium Gray */
+         /* Primary Color Variants (Deep Navy Blue) */
+         --color-primary-50: #e7eaf0;
+         --color-primary-100: #c3cde2;
+         --color-primary-200: #9faec3;
+         --color-primary-300: #7b8fa5;
+         --color-primary-400: #577086;
+         --color-primary-500: #0B2C53;
+         --color-primary-600: #0a274b;
+         --color-primary-700: #082040;
+         --color-primary-800: #071a35;
+         --color-primary-900: #061429;
+         /* Secondary Color Variants (Vibrant Orange) */
+         --color-secondary-50: #fef8e6;
+         --color-secondary-100: #fdeeb8;
+         --color-secondary-200: #fbe38a;
+         --color-secondary-300: #f9d95c;
+         --color-secondary-400: #f7ce2e;
+         --color-secondary-500: #F4A300;
+         --color-secondary-600: #dd9300;
+         --color-secondary-700: #c58200;
+         --color-secondary-800: #ae7200;
+         --color-secondary-900: #966100;
+         /* Typography */
+         --font-headings: "Montserrat", "sans-serif";
+         --font-body: "Source Serif Pro", "serif";
+         --font-accent: "Poppins", "sans-serif";
+         /* Font Sizes */
+         --text-h1-mobile: 36px;
+         --text-h1-desktop: 48px;
+         --text-h2-mobile: 28px;
+         --text-h2-desktop: 36px;
+         --text-h3-mobile: 22px;
+         }
+      </style>
+   </head>
+   <body class="font-body text-text-primary bg-neutral-base-white antialiased">
+      <!-- Header & Navigation -->
+      <header x-data="{
+         mobileMenuOpen: false,
+         menuItems: [
+         { text: 'Home', href: 'index.html' },
+         { text: 'Travel with Marwa', href: 'travel-with-marwa.html' },
+         { text: 'Safari Experiences', href: 'safari-experiences.html' },
+         { text: 'Destinations', href: 'destinations.html' },
+         ]
+         }" @keydown.escape.window="mobileMenuOpen = false" class="fixed top-0 left-0 right-0 z-50">
+         <div class="absolute top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl">
+            <nav class="relative flex justify-between items-center h-14 md:h-18 px-4 sm:px-8 lg:px-10 bg-gradient-to-r from-primary/80 to-secondary/80 backdrop-blur-lg rounded-2xl shadow-2xl">
+               <div class="flex-shrink-0">
+                  <a href="index.html" class="text-2xl font-bold text-white">Marwa Safaris</a>
+               </div>
+               <div class="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 items-center space-x-8">
+                  <a href="index.html" class="text-white hover:text-accent-yellow inline-block transform hover:-translate-y-0.5 hover:scale-105 transition-all duration-300">Home</a>
+                  <a href="travel-with-marwa.html" class="text-white hover:text-accent-yellow inline-block transform hover:-translate-y-0.5 hover:scale-105 transition-all duration-300">Travel with Marwa</a>
+                  <a href="safari-experiences.html" class="text-white hover:text-accent-yellow inline-block transform hover:-translate-y-0.5 hover:scale-105 transition-all duration-300">Safari Experiences</a>
+                  <a href="destinations.html" class="text-white hover:text-accent-yellow font-bold inline-block transform hover:-translate-y-0.5 hover:scale-105 transition-all duration-300">Destinations</a>
+               </div>
+               <div class="hidden md:flex items-center">
+                  <a href="plan-your-safari.html" class="relative group inline-flex items-center justify-center px-6 py-3.5 rounded-full bg-gradient-to-r from-accent-yellow to-secondary text-white font-accent font-semibold shadow-lg transform transition-all duration-300 overflow-hidden hover:shadow-[0_10px_25px_-5px_rgba(251,191,36,0.4),_0_8px_10px_-6px_rgba(251,191,36,0.4)] hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-accent-yellow/50">
+                     <span class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -translate-x-full -skew-x-12 group-hover:translate-x-full transition-transform duration-500 ease-in-out"></span>
+                     <span class="relative flex items-center">
+                        Plan Your Safari
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                           <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                     </span>
+                  </a>
+               </div>
+               <div class="md:hidden">
+                  <button @click="mobileMenuOpen = !mobileMenuOpen" class="relative z-50 text-white w-8 h-8 flex items-center justify-center" :aria-expanded="mobileMenuOpen">
+                     <span class="sr-only">Open main menu</span>
+                     <div class="absolute w-6 h-6">
+                        <span class="absolute block w-6 h-0.5 bg-white rounded-full transition-all duration-300" :class="{ 'rotate-45': mobileMenuOpen, 'top-1/2 -translate-y-1.5': !mobileMenuOpen, 'top-1/2 -translate-y-px': mobileMenuOpen }"></span>
+                        <span class="absolute block w-6 h-0.5 bg-white rounded-full transition-all duration-300" :class="{ '-rotate-45': mobileMenuOpen, 'top-1/2 translate-y-1.5': !mobileMenuOpen, 'top-1/2 -translate-y-px': mobileMenuOpen }"></span>
+                     </div>
+                  </button>
+               </div>
+            </nav>
+         </div>
+         <!-- Mobile Menu Overlay -->
+         <div x-show="mobileMenuOpen"
+            x-transition:enter="transition ease-out duration-500 transform"
+            x-transition:enter-start="opacity-0 -translate-y-full"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-300 transform"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-full"
+            class="fixed inset-0 bg-primary/95 backdrop-blur-md z-40 md:hidden"
+            @click.away="mobileMenuOpen = false"
+            x-cloak>
+            <div class="relative flex flex-col items-center justify-center h-full">
+               <!-- Close Button -->
+               <button @click="mobileMenuOpen = false" 
+                  x-show="mobileMenuOpen"
+                  x-transition:enter="transition-all ease-in-out duration-500"
+                  x-transition:enter-start="opacity-0 transform -translate-y-4"
+                  x-transition:enter-end="opacity-100 transform translate-y-0"
+                  x-transition:leave="transition-all ease-in-out duration-300"
+                  x-transition:leave-start="opacity-100 transform translate-y-0"
+                  x-transition:leave-end="opacity-0 transform -translate-y-4"
+                  style="transition-delay: 100ms"
+                  class="absolute top-6 right-6 text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+                  <span class="sr-only">Close menu</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+               </button>
+               <ul class="space-y-6 text-center">
+                  <template x-for="(item, index) in menuItems" :key="index">
+                     <li x-show="mobileMenuOpen"
+                        x-transition:enter="transition-all ease-in-out duration-500"
+                        x-transition:enter-start="opacity-0 transform translate-y-4"
+                        x-transition:enter-end="opacity-100 transform translate-y-0"
+                        x-transition:leave="transition-all ease-in-out duration-200"
+                        x-transition:leave-start="opacity-100 transform translate-y-0"
+                        x-transition:leave-end="opacity-0 transform translate-y-2"
+                        :style="`transition-delay: ${150 + index * 75}ms`">
+                        <a :href="item.href" class="text-3xl text-white font-semibold hover:text-secondary transition-colors" x-text="item.text"></a>
+                     </li>
+                  </template>
+               </ul>
+               <div x-show="mobileMenuOpen"
+                  x-transition:enter="transition-all ease-in-out duration-500"
+                  x-transition:enter-start="opacity-0 transform translate-y-4"
+                  x-transition:enter-end="opacity-100 transform translate-y-0"
+                  x-transition:leave="transition-all ease-in-out duration-200"
+                  x-transition:leave-start="opacity-100 transform translate-y-0"
+                  x-transition:leave-end="opacity-0 transform translate-y-2"
+                  :style="`transition-delay: ${150 + menuItems.length * 75}ms`"
+                  class="mt-12">
+                  <a href="plan-your-safari.html" class="relative group inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-gradient-to-r from-accent-yellow to-secondary text-white font-accent font-bold text-lg shadow-lg transform transition-all duration-300 overflow-hidden hover:shadow-[0_10px_25px_-5px_rgba(251,191,36,0.4),_0_8px_10px_-6px_rgba(251,191,36,0.4)] hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-accent-yellow/50">
+                     <span class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -translate-x-full -skew-x-12 group-hover:translate-x-full transition-transform duration-500 ease-in-out"></span>
+                     <span class="relative flex items-center">
+                        Plan Your Safari
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor">
+                           <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                     </span>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </header>
+      <main class="relative pt-24 md:pt-32 pb-16 md:pb-24">
+         <!-- Hero Section -->
+         <section class="relative overflow-hidden ">
+            <div class="relative mx-auto container w-full h-full  overflow-hidden rounded-3xl">
+            <!-- Background Elements -->
+            <div class="absolute inset-0 z-0">
+               <!-- Main Background Image with Parallax Effect -->
+               <div class="absolute inset-0 overflow-hidden">
+                  <img 
+                     src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                     alt="Safari planning scene with maps and guides" 
+                     class="w-full h-full object-cover object-center transform scale-110 md:scale-100 motion-safe:group-hover:scale-105 transition-transform duration-[3000ms] ease-out"
+                     data-speed="0.8">
+                  <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black/80"></div>
+                  <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/brushed-alum.png')] opacity-5"></div>
+               </div>
+               
+               <!-- Animated Gradient Overlays -->
+               <div class="absolute inset-0 overflow-hidden">
+                  <div class="absolute -top-1/2 -left-1/4 w-3/4 h-[200%] bg-gradient-to-br from-primary-500/5 via-transparent to-transparent transform rotate-12 animate-float-slow"></div>
+                  <div class="absolute -bottom-1/4 -right-1/4 w-1/2 h-[150%] bg-gradient-to-tl from-secondary-400/5 via-transparent to-transparent transform -rotate-12 animate-float-slow animation-delay-2000"></div>
+               </div>
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-10 pt-32 pb-24 md:pt-40 md:pb-32">
+               <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                  <div class="max-w-4xl mx-auto">
+                     <!-- Badge -->
+                     <div class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-primary-500/10 to-secondary-500/10 backdrop-blur-sm border border-white/10 mb-6 transform transition-all duration-700 hover:translate-x-1 group">
+                        <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-primary-400 to-secondary-400 mr-2 animate-pulse"></span>
+                        <span class="text-sm font-semibold bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent tracking-wider">YOUR JOURNEY BEGINS HERE</span>
+                     </div>
+                     
+                     <!-- Main Heading with Animated Text -->
+                     <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                        <span class="relative inline-block">
+                           <span class="relative z-10 bg-gradient-to-r from-white via-white to-gray-200 bg-clip-text text-transparent">Craft Your</span>
+                           <span class="absolute -bottom-2 left-0 w-full h-3 bg-gradient-to-r from-primary-400/30 to-secondary-400/30 -z-0 transform -rotate-1"></span>
+                        </span>
+                        <span class="block mt-3 bg-gradient-to-r from-primary-300 via-secondary-300 to-amber-300 bg-clip-text text-transparent">Dream Safari</span>
+                     </h1>
+                     
+                     <!-- Description -->
+                     <div class="relative max-w-2xl mx-auto mb-12">
+                        <div class="absolute -left-8 top-0 h-full w-1 bg-gradient-to-b from-primary-400 to-secondary-400 rounded-full"></div>
+                        <p class="text-xl md:text-2xl text-gray-200 pl-6 border-l-2 border-white/10">
+                           <span class="text-amber-300 font-semibold">Expertly designed</span> safari experiences in Kenya & Tanzania, tailored to your wildest dreams and beyond
+                        </p>
+                     </div>
+                     
+                     <!-- CTA Buttons -->
+                     <div class="flex flex-col sm:flex-row justify-center items-center gap-6 w-full">
+                        <a href="#contact" class="group relative w-full inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-primary-600 hover:to-secondary-600 text-white font-semibold rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-primary-500/20 focus:outline-none focus:ring-4 focus:ring-primary-400/30 focus:ring-offset-2 focus:ring-offset-gray-900 overflow-hidden">
+                           <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                           <span class="relative flex items-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 -ml-1 group-hover:animate-bounce-horizontal" viewBox="0 0 20 20" fill="currentColor">
+                                 <path fill-rule="evenodd" d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" clip-rule="evenodd" />
+                              </svg>
+                              Schedule A Call
+                           </span>
+                        </a>
+                        
+                        <a href="#itineraries" class="group w-full relative inline-flex items-center justify-center px-8 py-4 bg-white/5 backdrop-blur-sm border-2 border-white/20 hover:border-white/40 text-white font-semibold rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-white/5 focus:outline-none focus:ring-4 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-gray-900 overflow-hidden">
+                           <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                           <span class="relative flex items-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 -ml-1 group-hover:animate-bounce-horizontal" viewBox="0 0 20 20" fill="currentColor">
+                                 <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
+                                 <path d="M15 7v2a4 4 0 01-4 4H9.828l-2.766 2.767c.28.149.599.233.938.233h6.172a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
+                              </svg>
+                              Explore Itineraries
+                           </span>
+                        </a>
+                     </div>
+                     
+                  </div>
+               </div>
+            
+            </div>
+            </div>
+         </section>
+
+         <!-- Sample Itineraries Section -->
+         <section class="relative py-24 overflow-hidden z-10 bg-gradient-to-b from-gray-50 to-white">
+            <!-- Decorative elements -->
+            <div class="absolute inset-0 overflow-hidden">
+               <div class="absolute -top-1/2 -left-1/4 w-3/4 h-[150%] bg-gradient-to-r from-yellow-100/20 to-transparent -rotate-12 animate-float-slow"></div>
+               <div class="absolute -bottom-1/4 -right-1/4 w-1/2 h-[120%] bg-gradient-to-l from-yellow-100/15 to-transparent rotate-12 animate-float-slow animation-delay-2000"></div>
+               <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/brushed-alum.png')] opacity-[0.03]"></div>
+               <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-transparent"></div>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+               <div class="relative max-w-5xl">
+                  <!-- Decorative element -->
+                  <div class="absolute -left-24 -top-8 w-48 h-48 bg-yellow-100 rounded-full mix-blend-multiply filter blur-xl opacity-30"></div>
+                  
+                  <div class="relative pl-6 border-l-4 border-yellow-400">
+                  <!-- Badge with animated border -->
+                     <div class="inline-flex items-center mb-6 transform transition-all duration-700 hover:translate-x-1 group">
+                        <span class="w-3 h-3 rounded-full bg-yellow-400 mr-3 animate-pulse"></span>
+                        <span class="text-sm font-semibold text-yellow-700 tracking-wider uppercase">Tailored Experiences</span>
+                  </div>
+                  
+                     <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-heading max-w-2xl">
+                        <span class="relative">
+                           <span class="relative z-10">Inspiring</span>
+                           <span class="absolute bottom-2 left-0 w-24 h-3 bg-yellow-100 -z-0"></span>
+                     </span>
+                        <span class="block mt-2 text-amber-600">Safari Itineraries</span>
+                  </h2>
+                     
+                     <div class="relative pl-8 border-l-2 border-gray-200">
+                        <svg class="absolute left-0 top-0 w-6 h-6 -ml-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
+                           <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609.555 2.223.283 3.251-.823 5.375-1.221 2.39-3.12 4.235-3.859 4.904v3.721c0 1.397-1.122 2.267-2.484 1.937-2.138-.532-4.458-.854-6.666-.854-2.207 0-4.527.322-6.666.854-1.363.33-2.484-.54-2.484-1.937v-3.721c-.74-.669-2.638-2.514-3.859-4.904-1.103-2.157-1.381-3.168-.823-5.375 5.252 1.045 8.983 4.905 8.983 10.609v7.391c0 .531.23 1.012.6 1.413.37.4.88.652 1.438.652h1.953c.558 0 1.067-.252 1.438-.652.37-.401.6-.882.6-1.413z" />
+                        </svg>
+                        <p class="text-lg text-gray-600 max-w-xl">
+                           Discover handcrafted journeys that capture the essence of Africa's most breathtaking destinations. Each itinerary is carefully designed to create unforgettable memories.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Tab Navigation -->
+               <div class="flex flex-wrap justify-center mb-12 border-b border-gray-200">
+                  <div class="flex space-x-1 md:space-x-3 overflow-x-auto pb-1 w-full justify-center">
+                     <button class="px-4 py-3 text-sm md:text-base font-medium rounded-t-lg transition-all duration-200 whitespace-nowrap text-primary-600 border-b-2 border-primary-500 hover:bg-gray-50" data-tab="all">
+                        All Safaris
+                     </button>
+                     <button class="px-4 py-3 text-sm md:text-base font-medium rounded-t-lg transition-all duration-200 whitespace-nowrap text-gray-600 border-b-2 border-transparent hover:bg-gray-50 hover:text-gray-800 hover:border-gray-200" data-tab="popular">
+                        Most Popular
+                     </button>
+                     <button class="px-4 py-3 text-sm md:text-base font-medium rounded-t-lg transition-all duration-200 whitespace-nowrap text-gray-600 border-b-2 border-transparent hover:bg-gray-50 hover:text-gray-800 hover:border-gray-200" data-tab="luxury">
+                        Luxury
+                     </button>
+                     <button class="px-4 py-3 text-sm md:text-base font-medium rounded-t-lg transition-all duration-200 whitespace-nowrap text-gray-600 border-b-2 border-transparent hover:bg-gray-50 hover:text-gray-800 hover:border-gray-200" data-tab="family">
+                        Family
+                     </button>
+                     <button class="px-4 py-3 text-sm md:text-base font-medium rounded-t-lg transition-all duration-200 whitespace-nowrap text-gray-600 border-b-2 border-transparent hover:bg-gray-50 hover:text-gray-800 hover:border-gray-200" data-tab="adventure">
+                        Adventure
+                     </button>
+                     <button class="px-4 py-3 text-sm md:text-base font-medium rounded-t-lg transition-all duration-200 whitespace-nowrap text-gray-600 border-b-2 border-transparent hover:bg-gray-50 hover:text-gray-800 hover:border-gray-200" data-tab="honeymoon">
+                        Honeymoon
+                     </button>
+                  </div>
+               </div>
+
+               <!-- Active Filters -->
+               <div class="flex flex-wrap items-center justify-center gap-2 mb-8 px-4 py-3 bg-white rounded-xl shadow-sm border border-gray-100 max-w-4xl mx-auto">
+                  <span class="text-sm font-medium text-gray-500">Filters:</span>
+                  <div class="flex flex-wrap gap-2">
+                     <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-800">
+                        All Destinations
+                        <button class="ml-1.5 text-primary-500 hover:text-primary-700">
+                           <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 20 20">
+                              <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                           </svg>
+                        </button>
+                     </span>
+                     <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                        Any Duration
+                        <button class="ml-1.5 text-yellow-500 hover:text-yellow-700">
+                           <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 20 20">
+                              <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                           </svg>
+                        </button>
+                     </span>
+                     <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        All Styles
+                        <button class="ml-1.5 text-green-500 hover:text-green-700">
+                           <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 20 20">
+                              <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                           </svg>
+                        </button>
+                     </span>
+                  </div>
+                  <button class="ml-auto text-sm font-medium text-primary-600 hover:text-primary-800 flex items-center">
+                     <svg class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                     </svg>
+                     More Filters
+                  </button>
+               </div>
+
+               <!-- Itinerary Grid -->
+               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <!-- Itinerary Card 1 -->
+                  <div class="group bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                     <div class="relative h-64">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                        <div class="absolute inset-0 overflow-hidden">
+                           <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
+                              alt="Classic Kenya Safari" 
+                              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="absolute top-4 left-4 z-20 space-y-2">
+                           <span class="inline-block px-3 py-1 bg-yellow-500 text-white text-xs font-semibold rounded-full shadow-md">BEST SELLER</span>
+                           <span class="inline-block px-3 py-1 bg-white/90 text-gray-800 text-xs font-medium rounded-full backdrop-blur-sm">🔥 24 Booked This Month</span>
+                        </div>
+                        <div class="absolute bottom-0 left-0 p-6 z-20 w-full">
+                           <div class="flex justify-between items-start">
+                              <div>
+                                 <h3 class="text-2xl font-bold text-white drop-shadow-lg">Classic Kenya Safari</h3>
+                                 <div class="flex items-center mt-1 text-white/90 text-sm">
+                                    <svg class="h-4 w-4 mr-1 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
+                                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <span>4.9</span>
+                                    <span class="mx-1">•</span>
+                                    <span>12 Reviews</span>
+                                 </div>
+                              </div>
+                              <button class="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors">
+                                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                 </svg>
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                           <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                              <svg class="-ml-0.5 mr-1.5 h-2 w-2 text-blue-400" fill="currentColor" viewBox="0 0 8 8">
+                                 <circle cx="4" cy="4" r="3" />
+                              </svg>
+                              Small Group
+                           </span>
+                           <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                              <svg class="-ml-0.5 mr-1.5 h-2 w-2 text-green-400" fill="currentColor" viewBox="0 0 8 8">
+                                 <circle cx="4" cy="4" r="3" />
+                              </svg>
+                              Family Friendly
+                           </span>
+                           <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                              <svg class="-ml-0.5 mr-1.5 h-2 w-2 text-purple-400" fill="currentColor" viewBox="0 0 8 8">
+                                 <circle cx="4" cy="4" r="3" />
+                              </svg>
+                              Great Migration
+                           </span>
+                        </div>
+                        <p class="text-gray-600 mb-6 line-clamp-2">Experience the best of Kenya's wildlife in this comprehensive safari that takes you to three of the most iconic national parks with expert guides and comfortable accommodations.</p>
+                        
+                        <div class="border-t border-gray-100 pt-4">
+                           <div class="flex justify-between items-center">
+                              <div>
+                                 <div class="flex items-center text-sm text-gray-500 mb-1">
+                                    <svg class="h-4 w-4 mr-1 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <span>8 days / 7 nights</span>
+                                 </div>
+                                 <div class="flex items-center text-sm text-gray-500">
+                                    <svg class="h-4 w-4 mr-1 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    <span>3 destinations</span>
+                                 </div>
+                              </div>
+                              <div class="text-right">
+                                 <p class="text-xs text-gray-500">From</p>
+                                 <p class="text-2xl font-bold text-gray-900">$3,450</p>
+                                 <p class="text-xs text-gray-500">per person</p>
+                              </div>
+                           </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                           <a href="#" class="w-full flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg">
+                              View Full Itinerary
+                              <svg class="ml-2 -mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                              </svg>
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- Itinerary Card 2 -->
+                  <div class="group bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                     <div class="relative h-64">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                        <div class="absolute inset-0 overflow-hidden">
+                           <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                              alt="Luxury Big Five Safari" 
+                              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="absolute top-4 left-4 z-20 space-y-2">
+                           <span class="inline-block px-3 py-1 bg-amber-600 text-white text-xs font-semibold rounded-full shadow-md">LUXURY</span>
+                           <span class="inline-block px-3 py-1 bg-white/90 text-gray-800 text-xs font-medium rounded-full backdrop-blur-sm">✨ Private Experience</span>
+                        </div>
+                        <div class="absolute bottom-0 left-0 p-6 z-20 w-full">
+                           <div class="flex justify-between items-start">
+                              <div>
+                                 <h3 class="text-2xl font-bold text-white drop-shadow-lg">Luxury Big Five Safari</h3>
+                                 <div class="flex items-center mt-1 text-white/90 text-sm">
+                                    <svg class="h-4 w-4 mr-1 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
+                                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <span>4.8</span>
+                                    <span class="mx-1">•</span>
+                                    <span>8 Reviews</span>
+                                 </div>
+                              </div>
+                              <button class="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors">
+                                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                 </svg>
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                           <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">
+                              <svg class="-ml-0.5 mr-1.5 h-2 w-2 text-amber-400" fill="currentColor" viewBox="0 0 8 8">
+                                 <circle cx="4" cy="4" r="3" />
+                              </svg>
+                              Private Safari
+                           </span>
+                           <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-pink-100 text-pink-800">
+                              <svg class="-ml-0.5 mr-1.5 h-2 w-2 text-pink-400" fill="currentColor" viewBox="0 0 8 8">
+                                 <circle cx="4" cy="4" r="3" />
+                              </svg>
+                              Honeymoon
+                           </span>
+                           <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
+                              <svg class="-ml-0.5 mr-1.5 h-2 w-2 text-indigo-400" fill="currentColor" viewBox="0 0 8 8">
+                                 <circle cx="4" cy="4" r="3" />
+                              </svg>
+                              Luxury Lodges
+                           </span>
+                        </div>
+                        <p class="text-gray-600 mb-6 line-clamp-2">Indulge in the ultimate luxury safari experience with exclusive lodges, private game drives, and personalized service across Kenya's most prestigious reserves.</p>
+                        
+                        <div class="border-t border-gray-100 pt-4">
+                           <div class="flex justify-between items-center">
+                              <div>
+                                 <div class="flex items-center text-sm text-gray-500 mb-1">
+                                    <svg class="h-4 w-4 mr-1 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <span>10 days / 9 nights</span>
+                                 </div>
+                                 <div class="flex items-center text-sm text-gray-500">
+                                    <svg class="h-4 w-4 mr-1 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    <span>3 destinations</span>
+                                 </div>
+                              </div>
+                              <div class="text-right">
+                                 <p class="text-xs text-gray-500">From</p>
+                                 <p class="text-2xl font-bold text-gray-900">$8,950</p>
+                                 <p class="text-xs text-gray-500">per person</p>
+                              </div>
+                           </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                           <a href="#" class="w-full flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg">
+                              View Full Itinerary
+                              <svg class="ml-2 -mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                              </svg>
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- Itinerary Card 3 -->
+                  <div class="group bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                     <div class="relative h-64">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                        <div class="absolute inset-0 overflow-hidden">
+                           <img src="https://images.unsplash.com/photo-1506920925285-88204d06d71d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                              alt="Family Safari Adventure" 
+                              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div class="absolute top-4 left-4 z-20 space-y-2">
+                           <span class="inline-block px-3 py-1 bg-green-600 text-white text-xs font-semibold rounded-full shadow-md">FAMILY FAVORITE</span>
+                           <span class="inline-block px-3 py-1 bg-white/90 text-gray-800 text-xs font-medium rounded-full backdrop-blur-sm">👨‍👩‍👧‍👦 Kid-Friendly</span>
+                        </div>
+                        <div class="absolute bottom-0 left-0 p-6 z-20 w-full">
+                           <div class="flex justify-between items-start">
+                              <div>
+                                 <h3 class="text-2xl font-bold text-white drop-shadow-lg">Family Safari Adventure</h3>
+                                 <div class="flex items-center mt-1 text-white/90 text-sm">
+                                    <svg class="h-4 w-4 mr-1 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
+                                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    </svg>
+                                    <span>4.7</span>
+                                    <span class="mx-1">•</span>
+                                    <span>15 Reviews</span>
+                                 </div>
+                              </div>
+                              <button class="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors">
+                                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                 </svg>
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                           <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                              <svg class="-ml-0.5 mr-1.5 h-2 w-2 text-green-400" fill="currentColor" viewBox="0 0 8 8">
+                                 <circle cx="4" cy="4" r="3" />
+                              </svg>
+                              Family Friendly
+                           </span>
+                           <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                              <svg class="-ml-0.5 mr-1.5 h-2 w-2 text-blue-400" fill="currentColor" viewBox="0 0 8 8">
+                                 <circle cx="4" cy="4" r="3" />
+                              </svg>
+                              Educational
+                           </span>
+                           <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                              <svg class="-ml-0.5 mr-1.5 h-2 w-2 text-yellow-400" fill="currentColor" viewBox="0 0 8 8">
+                                 <circle cx="4" cy="4" r="3" />
+                              </svg>
+                              Private Guide
+                           </span>
+                        </div>
+                        <p class="text-gray-600 mb-6 line-clamp-2">Create unforgettable family memories with this specially designed safari that combines wildlife viewing with child-friendly activities and accommodations.</p>
+                        
+                        <div class="border-t border-gray-100 pt-4">
+                           <div class="flex justify-between items-center">
+                              <div>
+                                 <div class="flex items-center text-sm text-gray-500 mb-1">
+                                    <svg class="h-4 w-4 mr-1 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <span>7 days / 6 nights</span>
+                                 </div>
+                                 <div class="flex items-center text-sm text-gray-500">
+                                    <svg class="h-4 w-4 mr-1 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    <span>2 destinations</span>
+                                 </div>
+                              </div>
+                              <div class="text-right">
+                                 <p class="text-xs text-gray-500">From</p>
+                                 <p class="text-2xl font-bold text-gray-900">$5,200</p>
+                                 <p class="text-xs text-gray-500">family of 4</p>
+                              </div>
+                           </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                           <a href="#" class="w-full flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg">
+                              View Full Itinerary
+                              <svg class="ml-2 -mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                              </svg>
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <!-- Planning Approach Section -->
+         <section class="relative py-24 overflow-hidden z-10 bg-white">
+            <!-- Decorative elements -->
+            <div class="absolute inset-0 overflow-hidden">
+               <div class="absolute -top-1/2 -right-1/4 w-3/4 h-[150%] bg-gradient-to-r from-primary-100/20 to-transparent rotate-12 animate-float-slow"></div>
+               <div class="absolute -bottom-1/4 -left-1/4 w-1/2 h-[120%] bg-gradient-to-l from-primary-50/15 to-transparent -rotate-12 animate-float-slow animation-delay-2000"></div>
+               <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/brushed-alum.png')] opacity-[0.03]"></div>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+               <div class="text-center max-w-4xl mx-auto mb-16">
+                  <!-- Badge with animated border -->
+                  <div class="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-primary-50 border border-primary-100 mb-6 transform transition-all duration-700 hover:shadow-lg hover:-translate-y-0.5 group">
+                     <span class="w-2 h-2 rounded-full bg-primary-600 mr-2 animate-pulse"></span>
+                     <span class="text-sm font-semibold text-primary-600 tracking-wider">OUR PROCESS</span>
+                     <svg class="w-4 h-4 ml-2 text-primary-600 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                     </svg>
+                  </div>
+                  
+                  <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-heading">
+                     Your Safari, <span class="relative inline-block">
+                     <span class="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-blue-600">Your Way</span>
+                     <span class="absolute -bottom-2 left-0 w-full h-3 bg-primary-200/50 -z-0"></span>
+                     </span>
+                  </h2>
+                  <p class="text-lg text-gray-600 max-w-3xl mx-auto relative px-8">
+                     <span class="absolute -left-2 top-1/2 transform -translate-y-1/2 text-gray-300 text-2xl">❝</span>
+                     We craft personalized safari experiences that align perfectly with your travel style and dreams
+                     <span class="absolute -right-2 bottom-0 text-gray-300 text-2xl">❞</span>
+                  </p> into reality with precision and care</p>
+                  
+                  <div class="mt-8 flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+                     <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-sm font-medium">100% Customized Itineraries</span>
+                     </div>
+                     <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-sm font-medium">24/7 Expert Support</span>
+                     </div>
+                     <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">
+                        <svg class="h-5 w-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span class="text-sm font-medium">Local Expertise</span>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="relative max-w-6xl mx-auto">
+                  <!-- Timeline line -->
+                  <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary-100 via-primary-200 to-primary-100 transform -translate-x-1/2"></div>
+                  
+                  <!-- Steps container -->
+                  <div class="space-y-12 md:space-y-24">
+                     <!-- Step 1 -->
+                     <div class="relative flex flex-col md:flex-row items-center justify-between">
+                        <div class="md:w-5/12 md:pr-12 mb-8 md:mb-0 order-2 md:order-1">
+                           <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary-100">
+                              <div class="flex items-start mb-6">
+                                 <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center text-white text-xl font-bold shadow-md">1</div>
+                                 <div class="ml-5">
+                                    <h3 class="text-2xl font-bold text-gray-900">Initial Consultation</h3>
+                                    <p class="mt-1 text-primary-600 font-medium">Duration: 30-45 minutes</p>
+                                 </div>
+                              </div>
+                              <p class="text-gray-600 mb-6">Begin your journey with a personalized consultation where we'll discuss your travel aspirations, preferences, and any special requirements. Our safari experts will guide you through the possibilities and help shape your dream experience.</p>
+                              
+                              <div class="space-y-4">
+                                 <div class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="ml-3 text-gray-700">Discuss your travel style, interests, and must-see wildlife</span>
+                                 </div>
+                                 <div class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="ml-3 text-gray-700">Share your budget and travel dates</span>
+                                 </div>
+                                 <div class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="ml-3 text-gray-700">Get expert recommendations tailored to your interests</span>
+                                 </div>
+                              </div>
+                              
+                              <div class="mt-6 pt-6 border-t border-gray-100">
+                                 <div class="flex items-center">
+                                    <div class="flex-shrink-0">
+                                       <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Safari Expert">
+                                    </div>
+                                    <div class="ml-3">
+                                       <p class="text-sm font-medium text-gray-900">Sarah Johnson</p>
+                                       <p class="text-sm text-gray-500">Safari Specialist</p>
+                                    </div>
+                                    <div class="ml-auto">
+                                       <button class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+                                          <svg class="-ml-1 mr-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                             <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
+                                             <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h6l3 3v-3h1a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
+                                          </svg>
+                                          Book a Call
+                                       </button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="md:w-2/12 flex justify-center order-1 md:order-2">
+                           <div class="relative">
+                              <div class="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 rounded-full opacity-75 animate-pulse"></div>
+                              <div class="w-20 h-20 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 border-4 border-white shadow-xl flex items-center justify-center text-white text-2xl font-bold z-10 relative">
+                                 <span class="relative z-10">1</span>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="md:w-5/12 order-3 hidden md:block">
+                           <div class="relative h-full flex items-center">
+                              <div class="absolute right-0 w-64 h-48 bg-blue-50 rounded-2xl transform rotate-6 opacity-50"></div>
+                              <div class="relative z-10 p-6 bg-white rounded-xl shadow-lg">
+                                 <h4 class="font-bold text-gray-900 mb-2">What to prepare:</h4>
+                                 <ul class="space-y-2 text-sm text-gray-600">
+                                    <li class="flex items-start">
+                                       <svg class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                       </svg>
+                                       <span>Your travel dates and party size</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                       <svg class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                       </svg>
+                                       <span>Must-see wildlife or experiences</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                       <svg class="h-5 w-5 text-green-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                       </svg>
+                                       <span>Any special requirements or interests</span>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <!-- Step 2 -->
+                     <div class="relative flex flex-col md:flex-row items-center justify-between">
+                        <div class="md:w-5/12 order-3">
+                           <div class="relative h-full flex items-center">
+                              <div class="absolute left-0 w-64 h-48 bg-amber-50 rounded-2xl transform -rotate-6 opacity-50"></div>
+                              <div class="relative z-10 p-6 bg-white rounded-xl shadow-lg">
+                                 <h4 class="font-bold text-gray-900 mb-3">Itinerary Inclusions:</h4>
+                                 <div class="space-y-3">
+                                    <div class="flex items-start">
+                                       <div class="flex-shrink-0 mt-1">
+                                          <svg class="h-5 w-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                                             <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+                                          </svg>
+                                       </div>
+                                       <div class="ml-3">
+                                          <p class="text-sm font-medium text-gray-900">Daily Activities</p>
+                                          <p class="text-sm text-gray-500">Game drives, walking safaris, and cultural experiences</p>
+                                       </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                       <div class="flex-shrink-0 mt-1">
+                                          <svg class="h-5 w-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                                             <path fill-rule="evenodd" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" clip-rule="evenodd" />
+                                          </svg>
+                                       </div>
+                                       <div class="ml-3">
+                                          <p class="text-sm font-medium text-gray-900">Accommodations</p>
+                                          <p class="text-sm text-gray-500">Luxury lodges, tented camps, and boutique hotels</p>
+                                       </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                       <div class="flex-shrink-0 mt-1">
+                                          <svg class="h-5 w-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                                             <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
+                                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.542 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.616 1.078 2.96 1.292V16a1 1 0 102 0v-.089c0-.685-.09-1.32-.255-1.894a6.558 6.558 0 01-.623-2.576c0-.873.25-1.631.672-2.2.208-.278.466-.52.777-.714.22-.139.466-.26.734-.354a1 1 0 00.523-1.29A1 1 0 0013 5.5V5z" clip-rule="evenodd" />
+                                          </svg>
+                                       </div>
+                                       <div class="ml-3">
+                                          <p class="text-sm font-medium text-gray-900">Pricing</p>
+                                          <p class="text-sm text-gray-500">Transparent, all-inclusive pricing with no hidden fees</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="md:w-2/12 flex justify-center order-1 mb-8 md:mb-0">
+                           <div class="relative">
+                              <div class="absolute inset-0 bg-gradient-to-r from-amber-400 to-yellow-600 rounded-full opacity-75 animate-pulse"></div>
+                              <div class="w-20 h-20 rounded-full bg-gradient-to-br from-amber-400 to-yellow-600 border-4 border-white shadow-xl flex items-center justify-center text-white text-2xl font-bold z-10 relative">
+                                 <span class="relative z-10">2</span>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="md:w-5/12 md:pl-12 order-2 md:order-3">
+                           <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-amber-100">
+                              <div class="flex items-start mb-6">
+                                 <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-amber-400 to-yellow-600 flex items-center justify-center text-white text-xl font-bold shadow-md">2</div>
+                                 <div class="ml-5">
+                                    <h3 class="text-2xl font-bold text-gray-900">Custom Itinerary</h3>
+                                    <p class="mt-1 text-amber-600 font-medium">Delivery: 3-5 business days</p>
+                                 </div>
+                              </div>
+                              <p class="text-gray-600 mb-6">Our safari experts will design a bespoke itinerary tailored to your preferences, interests, and budget. We'll consider every detail to create your perfect African adventure.</p>
+                              
+                              <div class="space-y-4 mb-6">
+                                 <div class="flex items-start">
+                                    <svg class="h-5 w-5 text-amber-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="ml-3 text-gray-700">Personalized daily schedule with wildlife viewing opportunities</span>
+                                 </div>
+                                 <div class="flex items-start">
+                                    <svg class="h-5 w-5 text-amber-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="ml-3 text-gray-700">Handpicked accommodations that match your style and budget</span>
+                                 </div>
+                                 <div class="flex items-start">
+                                    <svg class="h-5 w-5 text-amber-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="ml-3 text-gray-700">Exclusive access to unique experiences and hidden gems</span>
+                                 </div>
+                              </div>
+                              
+                              <div class="bg-amber-50 p-4 rounded-lg border border-amber-100">
+                                 <div class="flex">
+                                    <div class="flex-shrink-0">
+                                       <svg class="h-5 w-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                                          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h2a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                       </svg>
+                                    </div>
+                                    <div class="ml-3">
+                                       <p class="text-sm text-amber-700">We'll provide you with a detailed, day-by-day itinerary that includes all activities, meals, and accommodations for your review.</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <!-- Step 3 -->
+                     <div class="relative flex flex-col md:flex-row items-center justify-between">
+                        <div class="md:w-5/12 md:pr-12 mb-8 md:mb-0 order-2 md:order-1">
+                           <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-green-100">
+                              <div class="flex items-start mb-6">
+                                 <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white text-xl font-bold shadow-md">3</div>
+                                 <div class="ml-5">
+                                    <h3 class="text-2xl font-bold text-gray-900">Feedback & Refinement</h3>
+                                    <p class="mt-1 text-green-600 font-medium">Iterative Process</p>
+                                 </div>
+                              </div>
+                              <p class="text-gray-600 mb-6">Your feedback is invaluable in perfecting your safari experience. We'll work closely with you to refine every detail until your itinerary is exactly as you envision it.</p>
+                              
+                              <div class="space-y-4 mb-6">
+                                 <div class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="ml-3 text-gray-700">Unlimited revisions to ensure complete satisfaction</span>
+                                 </div>
+                                 <div class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="ml-3 text-gray-700">Direct communication with your safari specialist</span>
+                                 </div>
+                                 <div class="flex items-start">
+                                    <svg class="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="ml-3 text-gray-700">Expert recommendations based on your feedback</span>
+                                 </div>
+                              </div>
+                              
+                              <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                                 <div class="flex">
+                                    <div class="flex-shrink-0">
+                                       <svg class="h-5 w-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                                          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h2a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                       </svg>
+                                    </div>
+                                    <div class="ml-3">
+                                       <p class="text-sm text-green-700">Our average client makes 1-2 rounds of revisions to finalize their perfect itinerary.</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="md:w-2/12 flex justify-center order-1 md:order-2">
+                           <div class="relative">
+                              <div class="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-600 rounded-full opacity-75 animate-pulse"></div>
+                              <div class="w-20 h-20 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 border-4 border-white shadow-xl flex items-center justify-center text-white text-2xl font-bold z-10 relative">
+                                 <span class="relative z-10">3</span>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="md:w-5/12 order-3 hidden md:block">
+                           <div class="relative h-full flex items-center">
+                              <div class="absolute right-0 w-64 h-48 bg-green-50 rounded-2xl transform rotate-6 opacity-50"></div>
+                              <div class="relative z-10 p-6 bg-white rounded-xl shadow-lg">
+                                 <h4 class="font-bold text-gray-900 mb-3">Common Refinements:</h4>
+                                 <div class="space-y-4">
+                                    <div class="flex items-start">
+                                       <div class="flex-shrink-0 mt-1 bg-green-100 rounded-full p-1">
+                                          <svg class="h-4 w-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                          </svg>
+                                       </div>
+                                       <div class="ml-3">
+                                          <p class="text-sm font-medium text-gray-900">Adjusting the pace of travel</p>
+                                          <p class="text-sm text-gray-500">Adding more leisure time or including additional activities</p>
+                                       </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                       <div class="flex-shrink-0 mt-1 bg-green-100 rounded-full p-1">
+                                          <svg class="h-4 w-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                          </svg>
+                                       </div>
+                                       <div class="ml-3">
+                                          <p class="text-sm font-medium text-gray-900">Upgrading accommodations</p>
+                                          <p class="text-sm text-gray-500">Enhancing comfort levels or changing property styles</p>
+                                       </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                       <div class="flex-shrink-0 mt-1 bg-green-100 rounded-full p-1">
+                                          <svg class="h-4 w-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                          </svg>
+                                       </div>
+                                       <div class="ml-3">
+                                          <p class="text-sm font-medium text-gray-900">Adding special experiences</p>
+                                          <p class="text-sm text-gray-500">Hot air balloon rides, private guides, or cultural interactions</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <!-- Step 4 -->
+                     <div class="relative flex flex-col md:flex-row items-center justify-between">
+                        <div class="md:w-5/12 order-3">
+                           <div class="relative h-full flex items-center">
+                              <div class="absolute left-0 w-64 h-48 bg-blue-50 rounded-2xl transform -rotate-6 opacity-50"></div>
+                              <div class="relative z-10 p-6 bg-white rounded-xl shadow-lg">
+                                 <h4 class="font-bold text-gray-900 mb-3">Your Travel Package Includes:</h4>
+                                 <div class="space-y-3">
+                                    <div class="flex items-start">
+                                       <div class="flex-shrink-0 mt-1">
+                                          <svg class="h-5 w-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                             <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+                                          </svg>
+                                       </div>
+                                       <div class="ml-3">
+                                          <p class="text-sm font-medium text-gray-900">Detailed Itinerary</p>
+                                          <p class="text-sm text-gray-500">Day-by-day schedule with all activities and experiences</p>
+                                       </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                       <div class="flex-shrink-0 mt-1">
+                                          <svg class="h-5 w-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                             <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                                             <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd" />
+                                          </svg>
+                                       </div>
+                                       <div class="ml-3">
+                                          <p class="text-sm font-medium text-gray-900">Travel Documents</p>
+                                          <p class="text-sm text-gray-500">E-tickets, vouchers, and important contact information</p>
+                                       </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                       <div class="flex-shrink-0 mt-1">
+                                          <svg class="h-5 w-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                             <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                                          </svg>
+                                       </div>
+                                       <div class="ml-3">
+                                          <p class="text-sm font-medium text-gray-900">24/7 Support</p>
+                                          <p class="text-sm text-gray-500">Local emergency contact available throughout your trip</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="md:w-2/12 flex justify-center order-1 mb-8 md:mb-0">
+                           <div class="relative">
+                              <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-600 rounded-full opacity-75 animate-pulse"></div>
+                              <div class="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 border-4 border-white shadow-xl flex items-center justify-center text-white text-2xl font-bold z-10 relative">
+                                 <span class="relative z-10">4</span>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="md:w-5/12 md:pl-12 order-2 md:order-3">
+                           <div class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-100">
+                              <div class="flex items-start mb-6">
+                                 <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-xl font-bold shadow-md">4</div>
+                                 <div class="ml-5">
+                                    <h3 class="text-2xl font-bold text-gray-900">Confirmation</h3>
+                                    <p class="mt-1 text-blue-600 font-medium">Secure Your Adventure</p>
+                                 </div>
+                              </div>
+                              <p class="text-gray-600 mb-6">With your approval, we'll immediately secure all reservations and provide you with a comprehensive travel package. Your dream safari is now becoming a reality!</p>
+                              
+                              <div class="space-y-4 mb-6">
+                                 <div class="flex items-start">
+                                    <svg class="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="ml-3 text-gray-700">Secure payment options with industry-standard encryption</span>
+                                 </div>
+                                 <div class="flex items-start">
+                                    <svg class="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="ml-3 text-gray-700">Instant confirmation of all bookings and reservations</span>
+                                 </div>
+                                 <div class="flex items-start">
+                                    <svg class="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="ml-3 text-gray-700">Digital travel documents accessible through our mobile app</span>
+                                 </div>
+                              </div>
+                              
+                              <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                                 <div class="flex">
+                                    <div class="flex-shrink-0">
+                                       <svg class="h-5 w-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                                          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h2a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                       </svg>
+                                    </div>
+                                    <div class="ml-3">
+                                       <p class="text-sm text-blue-700">A deposit of 30% is required to confirm your booking, with the balance due 60 days before departure.</p>
+                                    </div>
+                                 </div>
+                              </div>
+                              
+                              <button class="mt-6 w-full flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-blue-600 to-indigo-600 shadow-sm hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 transform hover:scale-105">
+                                 <svg class="-ml-1 mr-3 h-5 w-5 text-blue-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                                 </svg>
+                                 Secure My Booking
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+
+                     <!-- Step 5 -->
+                     <div class="relative flex flex-col md:flex-row items-center justify-between">
+                        <div class="md:w-5/12 md:pr-12 mb-8 md:mb-0 order-2 md:order-1">
+                           <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+                              <div class="flex items-center mb-4">
+                                 <div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 text-lg font-bold">5</div>
+                                 <h3 class="ml-4 text-xl font-bold text-gray-900">Pre-Trip Preparation</h3>
+                              </div>
+                              <p class="text-gray-600">Receive detailed pre-trip information, packing lists, and travel tips to prepare for your adventure.</p>
+                           </div>
+                        </div>
+                        <div class="md:w-2/12 flex justify-center order-1 md:order-2">
+                           <div class="w-16 h-16 rounded-full bg-purple-100 border-4 border-white shadow-md flex items-center justify-center text-purple-600 text-xl font-bold z-10">5</div>
+                        </div>
+                        <div class="md:w-5/12 order-3 hidden md:block"></div>
+                     </div>
+
+                     <!-- Step 6 -->
+                     <div class="relative flex flex-col md:flex-row items-center justify-between">
+                        <div class="md:w-5/12 order-3"></div>
+                        <div class="md:w-2/12 flex justify-center order-1 mb-8 md:mb-0">
+                           <div class="w-16 h-16 rounded-full bg-red-100 border-4 border-white shadow-md flex items-center justify-center text-red-600 text-xl font-bold z-10">6</div>
+                        </div>
+                        <div class="md:w-5/12 md:pl-12 order-2 md:order-3">
+                           <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+                              <div class="flex items-center mb-4">
+                                 <div class="flex-shrink-0 w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-600 text-lg font-bold">6</div>
+                                 <h3 class="ml-4 text-xl font-bold text-gray-900">Safari Experience</h3>
+                              </div>
+                              <p class="text-gray-600">Embark on your dream safari, with our team available 24/7 to ensure everything goes smoothly.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <!-- Seasonal Planning Guide -->
+         <section class="relative py-24 overflow-hidden z-10 bg-gradient-to-b from-white to-gray-50">
+            <!-- Decorative elements -->
+            <div class="absolute inset-0 overflow-hidden">
+               <div class="absolute -top-1/2 -left-1/4 w-3/4 h-[150%] bg-gradient-to-r from-amber-100/20 to-transparent -rotate-12 animate-float-slow"></div>
+               <div class="absolute -bottom-1/4 -right-1/4 w-1/2 h-[120%] bg-gradient-to-l from-amber-50/15 to-transparent rotate-12 animate-float-slow animation-delay-2000"></div>
+               <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/brushed-alum.png')] opacity-[0.03]"></div>
+               <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-transparent"></div>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+               <div class="text-center max-w-4xl mx-auto mb-16">
+                  <!-- Badge with animated border -->
+                  <div class="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-amber-50 border border-amber-100 mb-6 transform transition-all duration-700 hover:shadow-lg hover:-translate-y-0.5 group">
+                     <span class="w-2 h-2 rounded-full bg-amber-500 mr-2 animate-pulse"></span>
+                     <span class="text-sm font-semibold text-amber-700 tracking-wider">SEASONAL GUIDE</span>
+                     <svg class="w-4 h-4 ml-2 text-amber-500 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                     </svg>
+                  </div>
+                  
+                  <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-heading">
+                     When to Visit <span class="relative inline-block">
+                     <span class="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-amber-400">East Africa</span>
+                     <span class="absolute -bottom-2 left-0 w-full h-3 bg-amber-200/50 -z-0"></span>
+                     </span>
+                  </h2>
+                  <p class="text-lg text-gray-600 max-w-3xl mx-auto relative px-8">
+                     <span class="absolute -left-2 top-1/2 transform -translate-y-1/2 text-gray-300 text-2xl">❝</span>
+                     Plan your perfect safari with our month-by-month guide to wildlife viewing and weather patterns
+                     <span class="absolute -right-2 bottom-0 text-gray-300 text-2xl">❞</span>
+                  </p>
+               </div>
+
+               <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-7xl mx-auto">
+                  <!-- Left Column - Best Times & Wildlife -->
+                  <div class="lg:col-span-4 space-y-8">
+                     <!-- Best Times Card -->
+                     <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 transform transition-all duration-500 hover:shadow-2xl">
+                        <div class="bg-gradient-to-r from-primary-600 to-primary-700 p-6 text-white">
+                           <h3 class="text-2xl font-bold flex items-center">
+                              <svg class="w-6 h-6 mr-2 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
+                                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                              </svg>
+                              Best Times to Visit
+                           </h3>
+                        </div>
+                        <div class="p-6">
+                           <div class="space-y-6">
+                              <div class="flex items-start group">
+                                 <div class="flex-shrink-0 mt-1">
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                                       <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                          <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+                                       </svg>
+                                    </div>
+                                 </div>
+                                 <div class="ml-4">
+                                    <h4 class="font-bold text-gray-900 group-hover:text-primary-600 transition-colors">Peak Season</h4>
+                                    <p class="text-gray-600 mt-1">July to October for the Great Migration and optimal wildlife viewing.</p>
+                                 </div>
+                              </div>
+                              <div class="flex items-start group">
+                                 <div class="flex-shrink-0 mt-1">
+                                    <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                                       <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                       </svg>
+                                    </div>
+                                 </div>
+                                 <div class="ml-4">
+                                    <h4 class="font-bold text-gray-900 group-hover:text-primary-600 transition-colors">Shoulder Season</h4>
+                                    <p class="text-gray-600 mt-1">January to March for bird watching and newborn animals.</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <!-- Wildlife Viewing Card -->
+                     <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 transform transition-all duration-500 hover:shadow-2xl">
+                        <div class="bg-gradient-to-r from-amber-600 to-amber-700 p-6 text-white">
+                           <h3 class="text-2xl font-bold flex items-center">
+                              <svg class="w-6 h-6 mr-2 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
+                                 <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.793.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                                 <path fill-rule="evenodd" d="M11.5 5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" clip-rule="evenodd" />
+                              </svg>
+                              Wildlife Viewing
+                           </h3>
+                        </div>
+                        <div class="p-6">
+                           <div class="space-y-6">
+                              <div>
+                                 <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Great Migration</span>
+                                    <span class="text-sm font-medium text-gray-500">July-Oct</span>
+                                 </div>
+                                 <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 90%"></div>
+                                 </div>
+                              </div>
+                              <div>
+                                 <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Big Cats</span>
+                                    <span class="text-sm font-medium text-gray-500">Year-round</span>
+                                 </div>
+                                 <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-orange-500 h-2.5 rounded-full" style="width: 85%"></div>
+                                 </div>
+                              </div>
+                              <div>
+                                 <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Bird Watching</span>
+                                    <span class="text-sm font-medium text-gray-500">Nov-Apr</span>
+                                 </div>
+                                 <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-blue-500 h-2.5 rounded-full" style="width: 80%"></div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- Center Column - Seasonal Highlights -->
+                  <div class="lg:col-span-5">
+                     <div class="bg-white rounded-2xl shadow-xl overflow-hidden h-full border border-gray-100 transform transition-all duration-500 hover:shadow-2xl">
+                        <div class="bg-gradient-to-r from-emerald-600 to-teal-600 p-6 text-white">
+                           <h3 class="text-2xl font-bold flex items-center">
+                              <svg class="w-6 h-6 mr-2 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
+                                 <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10a1 1 0 01-1.64 0l-7-10A1 1 0 012 7h5V2a1 1 0 01.7-.954l3 1z" clip-rule="evenodd" />
+                              </svg>
+                              Seasonal Highlights
+                           </h3>
+                        </div>
+                        <div class="p-6">
+                           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                              <!-- Dry Season -->
+                              <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-amber-50 to-amber-100 p-6 transition-all duration-300 hover:shadow-lg">
+                                 <div class="absolute -right-4 -bottom-4 h-24 w-24 rounded-full bg-amber-200 opacity-20"></div>
+                                 <div class="relative z-10">
+                                    <div class="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-amber-400 to-yellow-600 text-white">
+                                       <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                                       </svg>
+                                    </div>
+                                    <h4 class="text-lg font-bold text-gray-900 mb-2">Dry Season</h4>
+                                    <p class="text-sm text-amber-800 mb-4">June - October</p>
+                                    <ul class="space-y-2 text-sm text-gray-700">
+                                       <li class="flex items-start">
+                                          <svg class="h-5 w-5 text-amber-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                          </svg>
+                                          <span>Ideal for wildlife viewing as animals gather around water sources</span>
+                                       </li>
+                                       <li class="flex items-start">
+                                          <svg class="h-5 w-5 text-amber-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                          </svg>
+                                          <span>Clear skies and minimal rainfall for excellent game drives</span>
+                                       </li>
+                                       <li class="flex items-start">
+                                          <svg class="h-5 w-5 text-amber-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                          </svg>
+                                          <span>Great Migration in the Maasai Mara (July-October)</span>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                              <!-- Green Season -->
+                              <div class="group relative overflow-hidden rounded-xl bg-gradient-to-br from-green-50 to-emerald-50 p-6 transition-all duration-300 hover:shadow-lg">
+                                 <div class="absolute -right-4 -bottom-4 h-24 w-24 rounded-full bg-green-200 opacity-20"></div>
+                                 <div class="relative z-10">
+                                    <div class="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-green-400 to-emerald-600 text-white">
+                                       <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                       </svg>
+                                    </div>
+                                    <h4 class="text-lg font-bold text-gray-900 mb-2">Green Season</h4>
+                                    <p class="text-sm text-emerald-800 mb-4">November - May</p>
+                                    <ul class="space-y-2 text-sm text-gray-700">
+                                       <li class="flex items-start">
+                                          <svg class="h-5 w-5 text-emerald-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                          </svg>
+                                          <span>Lush landscapes and beautiful scenery with fewer tourists</span>
+                                       </li>
+                                       <li class="flex items-start">
+                                          <svg class="h-5 w-5 text-emerald-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                          </svg>
+                                          <span>Bird watching at its peak with migratory species present</span>
+                                       </li>
+                                       <li class="flex items-start">
+                                          <svg class="h-5 w-5 text-emerald-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                          </svg>
+                                          <span>Lower rates and more availability at lodges and camps</span>
+                                       </li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- Right Column - Monthly Guide -->
+                  <div class="lg:col-span-3">
+                     <div class="bg-white rounded-2xl shadow-xl overflow-hidden h-full border border-gray-100 transform transition-all duration-500 hover:shadow-2xl">
+                        <div class="bg-gradient-to-r from-indigo-600 to-blue-600 p-6 text-white">
+                           <h3 class="text-2xl font-bold flex items-center">
+                              <svg class="w-6 h-6 mr-2 text-yellow-300" fill="currentColor" viewBox="0 0 20 20">
+                                 <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                                 <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd" />
+                              </svg>
+                              Monthly Guide
+                           </h3>
+                        </div>
+                        <div class="p-6">
+                           <div class="space-y-4">
+                              <!-- January - February -->
+                              <div x-data="{ open: false }" class="border-b border-gray-100 last:border-0 pb-4">
+                                 <button @click="open = !open" class="w-full flex justify-between items-center py-3 text-left group">
+                                    <div class="flex items-center">
+                                       <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-blue-100 text-blue-600 font-semibold mr-3">J</span>
+                                       <span class="font-medium text-gray-900 group-hover:text-blue-600 transition-colors">January - February</span>
+                                    </div>
+                                    <svg :class="{ 'transform rotate-180': open }" class="w-5 h-5 text-gray-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                 </button>
+                                 <div x-show="open" x-collapse class="pt-2 pl-11 space-y-3">
+                                    <div class="flex items-center">
+                                       <svg class="h-4 w-4 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                       </svg>
+                                       <span><span class="font-medium">Weather:</span> Hot and dry, occasional showers</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                       <svg class="h-4 w-4 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                       </svg>
+                                       <span><span class="font-medium">Wildlife:</span> Calving season, great predator action</span>
+                                    </div>
+                                    <div class="flex">
+                                       <svg class="h-4 w-4 text-blue-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                       </svg>
+                                       <span>Best time to see baby wildebeest and zebras. Warm temperatures, perfect for photography.</span>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <!-- March - May -->
+                              <div x-data="{ open: false }" class="border-b border-gray-100 last:border-0 pb-4">
+                                 <button @click="open = !open" class="w-full flex justify-between items-center py-3 text-left group">
+                                    <div class="flex items-center">
+                                       <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-green-100 text-green-600 font-semibold mr-3">M</span>
+                                       <span class="font-medium text-gray-900 group-hover:text-blue-600 transition-colors">March - May</span>
+                                    </div>
+                                    <svg :class="{ 'transform rotate-180': open }" class="w-5 h-5 text-gray-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                 </button>
+                                 <div x-show="open" x-collapse class="pt-2 pl-11 space-y-3">
+                                    <div class="flex items-center">
+                                       <svg class="h-4 w-4 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                       </svg>
+                                       <span><span class="font-medium">Weather:</span> Long rains, cooler temperatures</span>
+                                    </div>
+                                    <div class="flex">
+                                       <svg class="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                       </svg>
+                                       <span>Heavy rainfall makes some areas inaccessible. Fewer tourists, lower rates. Ideal for birdwatchers.</span>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <!-- June - October -->
+                              <div x-data="{ open: false }" class="border-b border-gray-100 last:border-0 pb-4">
+                                 <button @click="open = !open" class="w-full flex justify-between items-center py-3 text-left group">
+                                    <div class="flex items-center">
+                                       <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-amber-100 text-amber-600 font-semibold mr-3">J</span>
+                                       <span class="font-medium text-gray-900 group-hover:text-blue-600 transition-colors">June - October</span>
+                                    </div>
+                                    <svg :class="{ 'transform rotate-180': open }" class="w-5 h-5 text-gray-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                 </button>
+                                 <div x-show="open" x-collapse class="pt-2 pl-11 space-y-3">
+                                    <div class="flex items-center">
+                                       <svg class="h-4 w-4 text-amber-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                       </svg>
+                                       <span><span class="font-medium">Weather:</span> Cool and dry, clear skies</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                       <svg class="h-4 w-4 text-amber-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                       </svg>
+                                       <span><span class="font-medium">Wildlife:</span> Great Migration, big cats, elephants</span>
+                                    </div>
+                                    <div class="flex">
+                                       <svg class="h-4 w-4 text-amber-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                       </svg>
+                                       <span>Peak season for safaris. The Great Migration reaches the Maasai Mara (July-Oct). Book well in advance.</span>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <!-- November - December -->
+                              <div x-data="{ open: false }" class="border-b border-gray-100 last:border-0 pb-4">
+                                 <button @click="open = !open" class="w-full flex justify-between items-center py-3 text-left group">
+                                    <div class="flex items-center">
+                                       <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-purple-100 text-purple-600 font-semibold mr-3">N</span>
+                                       <span class="font-medium text-gray-900 group-hover:text-blue-600 transition-colors">November - December</span>
+                                    </div>
+                                    <svg :class="{ 'transform rotate-180': open }" class="w-5 h-5 text-gray-400 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                 </button>
+                                 <div x-show="open" x-collapse class="pt-2 pl-11 space-y-3">
+                                    <div class="flex items-center">
+                                       <svg class="h-4 w-4 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                       </svg>
+                                       <span><span class="font-medium">Weather:</span> Short rains, warm</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                       <svg class="h-4 w-4 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                       </svg>
+                                       <span><span class="font-medium">Wildlife:</span> Bird watching, newborn animals</span>
+                                    </div>
+                                    <div class="flex">
+                                       <svg class="h-4 w-4 text-purple-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                       </svg>
+                                       <span>Short afternoon showers. Lush landscapes. Migratory birds arrive. Fewer crowds than peak season.</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <!-- Alpine.js Initialization for Seasonal Guide -->
+         <script>
+            document.addEventListener('alpine:init', () => {
+               console.log('Alpine.js initialized for Seasonal Planning Guide');
+               
+               // Any additional Alpine.js components can be registered here
+               // For example, if you want to add more interactive elements later
+               /*
+               Alpine.data('seasonalGuide', () => ({
+                  // Component logic here
+               }));
+               */
+            });
+         </script>
+
+         <!-- FAQ Section -->
+         <section class="relative py-24 overflow-hidden z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+               <!-- Decorative elements -->
+               <div class="absolute inset-0 overflow-hidden">
+                  <div class="absolute -top-1/2 -left-1/4 w-3/4 h-[150%] bg-gradient-to-r from-yellow-100/20 to-transparent -rotate-12 animate-float-slow"></div>
+                  <div class="absolute -bottom-1/4 -right-1/4 w-1/2 h-[120%] bg-gradient-to-l from-yellow-100/15 to-transparent rotate-12 animate-float-slow animation-delay-2000"></div>
+                  <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/brushed-alum.png')] opacity-[0.03]"></div>
+                  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-transparent"></div>
+               </div>
+               
+               <div class="text-center max-w-4xl mx-auto relative z-10">
+                  <!-- Badge with animated border -->
+                  <div class="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-yellow-50 border border-yellow-100 mb-6 transform transition-all duration-700 hover:shadow-lg hover:-translate-y-0.5 group">
+                     <span class="w-2 h-2 rounded-full bg-accent-yellow mr-2 animate-pulse"></span>
+                     <span class="text-sm font-semibold text-accent-yellow tracking-wider">NEED HELP?</span>
+                     <svg class="w-4 h-4 ml-2 text-accent-yellow transform transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                     </svg>
+                  </div>
+                  
+                  <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-heading">
+                     Frequently Asked <span class="relative inline-block">
+                     <span class="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-amber-400">Questions</span>
+                     <span class="absolute -bottom-2 left-0 w-full h-3 bg-accent-yellow/30 -z-0"></span>
+                     </span>
+                  </h2>
+                  <p class="text-lg text-gray-600 max-w-3xl mx-auto relative px-8">
+                     <span class="absolute -left-2 top-1/2 transform -translate-y-1/2 text-gray-300 text-2xl">❝</span>
+                     Find answers to common questions about planning your dream safari adventure with our comprehensive FAQ section.
+                     <span class="absolute -right-2 bottom-0 text-gray-300 text-2xl">❞</span>
+                  </p>
+               </div>
+
+               <div class="max-w-5xl mx-auto">
+                  <!-- Tabs -->
+                  <div class="flex flex-wrap justify-center mb-8 border-b border-gray-200">
+                     <button @click="activeTab = 'all'" :class="{ 'text-primary-600 border-primary-600': activeTab === 'all' }" class="px-6 py-3 font-medium text-sm sm:text-base border-b-2 border-transparent hover:text-primary-600 transition-colors duration-200">
+                        All Questions
+                     </button>
+                     <button @click="activeTab = 'booking'" :class="{ 'text-primary-600 border-primary-600': activeTab === 'booking' }" class="px-6 py-3 font-medium text-sm sm:text-base border-b-2 border-transparent hover:text-primary-600 transition-colors duration-200">
+                        <svg class="w-5 h-5 inline-block mr-2 -mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        Booking
+                     </button>
+                     <button @click="activeTab = 'preparation'" :class="{ 'text-primary-600 border-primary-600': activeTab === 'preparation' }" class="px-6 py-3 font-medium text-sm sm:text-base border-b-2 border-transparent hover:text-primary-600 transition-colors duration-200">
+                        <svg class="w-5 h-5 inline-block mr-2 -mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                        Preparation
+                     </button>
+                     <button @click="activeTab = 'safari'" :class="{ 'text-primary-600 border-primary-600': activeTab === 'safari' }" class="px-6 py-3 font-medium text-sm sm:text-base border-b-2 border-transparent hover:text-primary-600 transition-colors duration-200">
+                        <svg class="w-5 h-5 inline-block mr-2 -mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                        </svg>
+                        On Safari
+                     </button>
+                  </div>
+
+                  <!-- FAQ Items -->
+                  <div class="space-y-4" x-data="{
+                     activeTab: 'all',
+                     searchQuery: '',
+                     filteredFAQs: [],
+                     faqs: [
+                        {
+                           id: 1,
+                           question: 'How far in advance should I book my safari?',
+                           answer: 'We recommend booking at least 6-12 months in advance, especially if you\'re planning to travel during peak seasons (July-October and December-January). This ensures the best availability for accommodations and activities. For last-minute bookings, we may still be able to accommodate you, but options might be more limited.',
+                           category: 'booking',
+                           icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'
+                        },
+                        {
+                           id: 2,
+                           question: 'What should I pack for my safari?',
+                           answer: 'We recommend packing light, neutral-colored clothing, comfortable walking shoes, a wide-brimmed hat, sunglasses, sunscreen, binoculars, and a good camera. A detailed packing list will be provided upon booking. Don\'t forget any necessary medications and travel documents.',
+                           category: 'preparation',
+                           icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2'
+                        },
+                        {
+                           id: 3,
+                           question: 'What wildlife can I expect to see?',
+                           answer: 'Our safaris offer the opportunity to see the Big Five (lion, leopard, elephant, buffalo, and rhino) as well as numerous other species including giraffes, zebras, cheetahs, hippos, crocodiles, and over 500 species of birds. The specific animals you\'ll see depend on the season and the parks you visit.',
+                           category: 'safari',
+                           icon: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9'
+                        },
+                        {
+                           id: 4,
+                           question: 'What are the accommodation options?',
+                           answer: 'We offer a range of accommodation options from luxury lodges and tented camps to more budget-friendly options. All our accommodations are carefully selected for their quality, location, and commitment to sustainable tourism. You can choose between standard rooms, family suites, or private villas depending on your preference and group size.',
+                           category: 'booking',
+                           icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'
+                        },
+                        {
+                           id: 5,
+                           question: 'What is the best time of year to go on safari?',
+                           answer: 'The best time depends on what you want to see. For the Great Migration in the Serengeti, June to October is ideal. For calving season and predator action, January to March is perfect. The green season (November to May) offers beautiful landscapes and fewer tourists, with excellent bird watching and lower rates.',
+                           category: 'safari',
+                           icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
+                        }
+                     ],
+                     init() {
+                        this.filteredFAQs = this.faqs;
+                     },
+                     filterFAQs() {
+                        this.filteredFAQs = this.faqs.filter(faq => {
+                           const matchesSearch = faq.question.toLowerCase().includes(this.searchQuery.toLowerCase()) || 
+                                             faq.answer.toLowerCase().includes(this.searchQuery.toLowerCase());
+                           const matchesTab = this.activeTab === 'all' || faq.category === this.activeTab;
+                           return matchesSearch && matchesTab;
+                        });
+                     }
+                  }" x-init="filterFAQs()">
+                     <template x-for="(faq, index) in filteredFAQs" :key="faq.id">
+                        <div x-data="{ open: false }" class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 overflow-hidden">
+                           <button 
+                              @click="open = !open" 
+                              class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none group"
+                              :class="{ 'bg-gray-50': open }"
+                           >
+                              <div class="flex items-start">
+                                 <div class="bg-primary-50 p-2 rounded-lg mr-4">
+                                    <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="faq.icon" />
+                                    </svg>
+                                 </div>
+                                 <div class="text-left">
+                                    <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary-600 transition-colors" x-text="faq.question"></h3>
+                                 </div>
+                              </div>
+                              <div class="flex-shrink-0 ml-4">
+                                 <svg 
+                                    :class="{ 'rotate-180': open }" 
+                                    class="w-6 h-6 text-gray-400 transform transition-transform duration-200" 
+                                    fill="none" 
+                                    viewBox="0 0 24 24" 
+                                    stroke="currentColor"
+                                 >
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                 </svg>
+                              </div>
+                           </button>
+                           <div 
+                              x-show="open" 
+                              x-collapse 
+                              x-transition:enter="transition-all ease-in-out duration-300"
+                              x-transition:enter-start="opacity-0 max-h-0"
+                              x-transition:enter-end="opacity-100 max-h-96"
+                              x-transition:leave="transition-all ease-in-out duration-200"
+                              x-transition:leave-start="opacity-100 max-h-96"
+                              x-transition:leave-end="opacity-0 max-h-0"
+                              class="px-6 pb-6 pl-16 text-gray-600 overflow-hidden"
+                           >
+                              <p x-text="faq.answer"></p>
+                           </div>
+                        </div>
+                     </template>
+                     
+                     <!-- Empty State -->
+                     <div x-show="filteredFAQs.length === 0" class="text-center py-12">
+                        <svg class="mx-auto h-16 w-16 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <h3 class="mt-4 text-lg font-medium text-gray-900">No questions found</h3>
+                        <p class="mt-1 text-gray-500">We couldn't find any questions matching your search. Try different keywords or check back later.</p>
+                        <div class="mt-6">
+                           <button @click="searchQuery = ''; activeTab = 'all'; filterFAQs();" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+                              <svg class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                              </svg>
+                              Reset filters
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- CTA -->
+                  </div>
+                  
+                  <!-- CTA -->
+                  <div class="mt-16 text-center">
+                     <div class="bg-gradient-to-r from-primary-50 to-blue-50 rounded-2xl p-8 md:p-12">
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Still have questions?</h3>
+                        <p class="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">Our safari experts are here to help you plan your perfect adventure.</p>
+                        <div class="flex flex-col sm:flex-row justify-center gap-4">
+                           <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-full text-white bg-gradient-to-r from-primary-600 to-blue-600 hover:from-primary-700 hover:to-blue-700 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300">
+                              Contact Our Team
+                              <svg class="ml-2 -mr-1 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                              </svg>
+                           </a>
+                           <a href="tel:+1234567890" class="inline-flex items-center justify-center px-8 py-4 border border-gray-300 text-base font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50 shadow-sm hover:shadow-md transition-all duration-200">
+                              <svg class="-ml-1 mr-2 h-5 w-5 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                              </svg>
+                              Call Us Now
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+      </main>
+      <!-- Footer -->
+      <footer class="relative bg-gradient-to-br from-primary-900 to-primary-800 text-neutral-base-gray pt-16 pb-8 z-20 overflow-hidden">
+         <!-- Decorative Elements -->
+         <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPgo8L3N2Zz4=')]"></div>
+         </div>
+         <div class="absolute -top-20 -right-20 w-64 h-64 bg-yellow-400/5 rounded-full filter blur-3xl"></div>
+         <div class="absolute -bottom-32 -left-32 w-80 h-80 bg-yellow-400/5 rounded-full filter blur-3xl"></div>
+         <div class="relative container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
+               <!-- Company Info -->
+               <div class="lg:col-span-3 space-y-6">
+                  <div class="flex items-center">
+                     <span class="text-2xl font-bold bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent">Marwa Safaris</span>
+                  </div>
+                  <p class="text-sm text-gray-300 leading-relaxed">Experience the heart of Africa with those who know it best. We create unforgettable safari adventures that connect you with nature's most spectacular wonders.</p>
+                  <div class="flex space-x-4">
+                     <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="TripAdvisor">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                           <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 22.5c-5.8 0-10.5-4.7-10.5-10.5S6.2 1.5 12 1.5 22.5 6.2 22.5 12 17.8 22.5 12 22.5zm4.5-7.8c-1.1 0-2.1-.7-2.4-1.7h-4.2c-.3 1-.9 1.7-1.9 1.7-1.1 0-2-.9-2-2s.9-2 2-2c1 0 1.7.6 1.9 1.5h4.2c.2-.9 1-1.5 1.9-1.5 1.1 0 2 .9 2 2s-.9 2-2 2zm-7.5-2.4c0-.4.3-.7.7-.7s.7.3.7.7-.3.7-.7.7-.7-.3-.7-.7zm6 0c0-.4.3-.7.7-.7s.7.3.7.7-.3.7-.7.7-.7-.3-.7-.7z"/>
+                        </svg>
+                     </a>
+                     <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Facebook">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                           <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                        </svg>
+                     </a>
+                     <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Instagram">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                           <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.976.045-1.505.207-1.858.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.976.207 1.505.344 1.858.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 8.865a3.135 3.135 0 110 6.27 3.135 3.135 0 010-6.27zm0 1.802a1.333 1.333 0 100 2.666 1.333 1.333 0 000-2.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                        </svg>
+                     </a>
+                     <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Twitter">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                           <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                        </svg>
+                     </a>
+                  </div>
+               </div>
+               <!-- Quick Links -->
+               <div class="lg:col-span-4 transform transition-all duration-500 hover:scale-[1.01]">
+                  <h4 class="text-base font-semibold text-white uppercase tracking-wider mb-6 relative inline-block group">
+                     <span class="relative z-10">Quick Links</span>
+                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 group-hover:w-full transition-all duration-300 ease-out"></span>
+                  </h4>
+                  <div class="grid grid-cols-1 gap-8">
+                     <a href="safari-experiences.html" class="group flex items-center p-3 -m-3 rounded-lg bg-gradient-to-r from-yellow-500/5 to-transparent hover:from-yellow-500/10 transition-all duration-300 border border-transparent hover:border-yellow-400/20">
+                        <div class="flex-shrink-0 h-8 w-8 flex items-center justify-center rounded-md bg-yellow-500/10 text-yellow-400 group-hover:bg-yellow-500/20 transition-colors duration-300">
+                           <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                           </svg>
+                        </div>
+                        <div class="ml-4">
+                           <p class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors duration-300">Safari Experiences</p>
+                           <p class="text-xs text-gray-400 mt-0.5">Unforgettable adventures</p>
+                        </div>
+                     </a>
+                     <a href="destinations.html" class="group flex items-center p-3 -m-3 rounded-lg bg-gradient-to-r from-yellow-500/5 to-transparent hover:from-yellow-500/10 transition-all duration-300 border border-transparent hover:border-yellow-400/20">
+                        <div class="flex-shrink-0 h-8 w-8 flex items-center justify-center rounded-md bg-yellow-500/10 text-yellow-400 group-hover:bg-yellow-500/20 transition-colors duration-300">
+                           <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                           </svg>
+                        </div>
+                        <div class="ml-4">
+                           <p class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors duration-300">Destinations</p>
+                           <p class="text-xs text-gray-400 mt-0.5">Explore Africa's gems</p>
+                        </div>
+                     </a>
+                     <a href="travel-with-marwa.html" class="group flex items-center p-3 -m-3 rounded-lg bg-gradient-to-r from-yellow-500/5 to-transparent hover:from-yellow-500/10 transition-all duration-300 border border-transparent hover:border-yellow-400/20">
+                        <div class="flex-shrink-0 h-8 w-8 flex items-center justify-center rounded-md bg-yellow-500/10 text-yellow-400 group-hover:bg-yellow-500/20 transition-colors duration-300">
+                           <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                           </svg>
+                        </div>
+                        <div class="ml-4">
+                           <p class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors duration-300">Travel with Marwa</p>
+                           <p class="text-xs text-gray-400 mt-0.5">Your journey starts here</p>
+                        </div>
+                     </a>
+                     <a href="plan-your-safari.html" class="group flex items-center p-3 -m-3 rounded-lg bg-gradient-to-r from-yellow-500/5 to-transparent hover:from-yellow-500/10 transition-all duration-300 border border-transparent hover:border-yellow-400/20">
+                        <div class="flex-shrink-0 h-8 w-8 flex items-center justify-center rounded-md bg-yellow-500/10 text-yellow-400 group-hover:bg-yellow-500/20 transition-colors duration-300">
+                           <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                           </svg>
+                        </div>
+                        <div class="ml-4">
+                           <p class="text-sm font-medium text-white group-hover:text-yellow-400 transition-colors duration-300">Plan Your Safari</p>
+                           <p class="text-xs text-gray-400 mt-0.5">Create your dream trip</p>
+                        </div>
+                     </a>
+                  </div>
+               </div>
+               <!-- Contact Info -->
+               <div class="lg:col-span-2">
+                  <h4 class="text-base font-semibold text-white uppercase tracking-wider mb-6">Contact Us</h4>
+                  <ul class="space-y-4">
+                     <li class="flex items-start">
+                        <div class="flex-shrink-0 h-6 w-6 text-yellow-400 mt-0.5">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                           </svg>
+                        </div>
+                        <div class="ml-3">
+                           <p class="text-sm font-medium text-white">+254 712 345 678</p>
+                           <p class="text-xs text-gray-400 mt-0.5">Mon-Fri, 8am-5pm EAT</p>
+                        </div>
+                     </li>
+                     <li class="flex items-start">
+                        <div class="flex-shrink-0 h-6 w-6 text-yellow-400 mt-0.5">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                           </svg>
+                        </div>
+                        <div class="ml-3">
+                           <p class="text-sm font-medium text-white">info@marwasafaris.africa</p>
+                           <p class="text-xs text-gray-400 mt-0.5">We'll respond within 24 hours</p>
+                        </div>
+                     </li>
+                     <li class="flex items-start">
+                        <div class="flex-shrink-0 h-6 w-6 text-yellow-400 mt-0.5">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                           </svg>
+                        </div>
+                        <div class="ml-3">
+                           <p class="text-sm font-medium text-white">Nairobi, Kenya</p>
+                           <p class="text-xs text-gray-400 mt-0.5">Headquarters</p>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+               <!-- Newsletter Signup -->
+               <div class="lg:col-span-3">
+                  <h4 class="text-base font-semibold text-white uppercase tracking-wider mb-6">Join Our Safari Community</h4>
+                  <p class="text-sm text-gray-300 mb-4">Subscribe to receive exclusive safari offers, travel tips, and conservation updates.</p>
+                  <form class="space-y-3">
+                     <div>
+                        <label for="email" class="sr-only">Email address</label>
+                        <div class="relative rounded-md shadow-sm">
+                           <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                              <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                              </svg>
+                           </div>
+                           <input type="email" name="email" id="email" class="block w-full pl-10 pr-3 py-2.5 border border-gray-700 bg-gray-800/50 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent rounded-md transition duration-150 ease-in-out" placeholder="Enter your email">
+                        </div>
+                     </div>
+                     <div class="flex items-start">
+                        <input id="privacy-policy" name="privacy-policy" type="checkbox" class="h-4 w-4 mt-1 text-yellow-500 focus:ring-yellow-400 border-gray-600 rounded bg-gray-800/50">
+                        <label for="privacy-policy" class="ml-2 block text-xs text-gray-400">
+                        I agree to the <a href="#" class="text-yellow-400 hover:text-yellow-300 underline">Privacy Policy</a> and <a href="#" class="text-yellow-400 hover:text-yellow-300 underline">Terms of Service</a>
+                        </label>
+                     </div>
+                     <button type="submit" class="w-full flex justify-center items-center px-4 py-2.5 cursor-pointer border border-transparent text-sm font-medium rounded-md text-gray-900 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl">
+                        Subscribe
+                        <svg class="ml-2 -mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                     </button>
+                  </form>
+                  <div class="mt-6 pt-6 border-t border-gray-800">
+                     <h5 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Secure Payments</h5>
+                     <div class="flex flex-wrap gap-3">
+                        <img class="h-6" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visa/visa-original.svg" alt="Visa" loading="lazy">
+                        <img class="h-6" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mastercard/mastercard-original.svg" alt="Mastercard" loading="lazy">
+                        <img class="h-6" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/paypal/paypal-original.svg" alt="PayPal" loading="lazy">
+                        <img class="h-6" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" alt="Apple Pay" loading="lazy">
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Bottom Bar -->
+         <div class="mt-16 pt-8 px-8 border-t border-gray-800">
+            <div class="md:flex md:items-center md:justify-between">
+               <div class="flex justify-center md:justify-start space-x-6">
+                  <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-xs">Privacy Policy</a>
+                  <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-xs">Terms of Service</a>
+                  <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-xs">Cookie Policy</a>
+                  <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 text-xs">Sitemap</a>
+               </div>
+               <div class="mt-4 md:mt-0 text-center md:text-right">
+                  <p class="text-xs text-gray-500">&copy; 2025 Marwa Safaris. All rights reserved.</p>
+                  <p class="mt-1 text-xs text-gray-500">Proudly African. Committed to conservation and sustainable tourism.</p>
+               </div>
+            </div>
+         </div>
+         <!-- Slide-out Contact Form -->
+         <div id="contactFormOverlay" class="fixed inset-0 bg-accent-yellow/10 bg-opacity-50 z-40 hidden opacity-0 transition-opacity duration-300"></div>
+         <div id="contactForm" class="fixed bottom-0 right-0 w-full sm:max-w-md h-auto bg-white rounded-none sm:rounded-tl-3xl shadow-2xl transform translate-y-full transition-transform duration-300 ease-in-out z-50">
+            <div class="p-6">
+               <div class="flex justify-between items-center mb-6">
+                  <h3 class="text-2xl font-bold text-gray-900">Get in Touch</h3>
+                  <button id="closeContactForm" class="text-gray-400 hover:text-gray-600 focus:outline-none">
+                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                     </svg>
+                  </button>
+               </div>
+               <form class="space-y-4">
+                  <div>
+                     <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                     <input type="text" id="name" name="name" required 
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition duration-200"
+                        placeholder="John Doe">
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                     <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" id="email" name="email" required 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition duration-200"
+                           placeholder="your@email.com">
+                     </div>
+                     <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                        <input type="tel" id="phone" name="phone"
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition duration-200"
+                           placeholder="+1 (555) 123-4567">
+                     </div>
+                  </div>
+                  <div>
+                     <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
+                     <textarea id="message" name="message" rows="4" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition duration-200"
+                        placeholder="How can we help you?"></textarea>
+                  </div>
+                  <div class="pt-2">
+                     <button type="submit" 
+                        class="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white font-semibold py-2.5 px-6 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+                     Send Message
+                     </button>
+                  </div>
+               </form>
+            </div>
+            <div class="bg-gray-50 px-6 py-4 rounded-br-3xl">
+               <p class="text-xs text-gray-500 text-center">
+                  Or contact us directly at <a href="mailto:info@marwasafaris.africa" class="text-yellow-600 hover:underline">info@marwasafaris.africa</a>
+               </p>
+            </div>
+         </div>
+         <!-- Back to Top Button -->
+         <button id="backToTop" class="fixed bottom-8 right-8 bg-amber-600 text-white p-3 rounded-full shadow-lg transform transition-all duration-300 opacity-0 translate-y-20 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 z-40">
+               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+               </svg>
+               <span class="sr-only">Back to top</span>
+         </button>
+
+         <!-- Alpine.js Component Initialization -->
+         <script>
+         // Back to Top Button
+         document.addEventListener('DOMContentLoaded', () => {
+               const backToTopButton = document.getElementById('backToTop');
+               
+               if (backToTopButton) {
+                  window.addEventListener('scroll', () => {
+                     if (window.pageYOffset > 300) {
+                           backToTopButton.classList.remove('opacity-0', 'translate-y-20');
+                           backToTopButton.classList.add('opacity-100', 'translate-y-0');
+                     } else {
+                           backToTopButton.classList.remove('opacity-100', 'translate-y-0');
+                           backToTopButton.classList.add('opacity-0', 'translate-y-20');
+                     }
+                  });
+                  
+                  backToTopButton.addEventListener('click', () => {
+                     window.scrollTo({
+                           top: 0,
+                           behavior: 'smooth'
+                     });
+                  });
+               }
+         });
+         </script>
+         <script>
+            // Contact Form Toggle
+            const contactButton = document.getElementById('contactButton');
+            const contactForm = document.getElementById('contactForm');
+            const contactFormOverlay = document.getElementById('contactFormOverlay');
+            const closeContactForm = document.getElementById('closeContactForm');
+            
+            function openContactForm() {
+                document.body.style.overflow = 'hidden';
+                contactFormOverlay.classList.remove('hidden');
+                setTimeout(() => {
+                    contactFormOverlay.classList.remove('opacity-0');
+                    contactForm.classList.remove('translate-y-full');
+                    contactForm.classList.add('translate-y-0');
+                }, 10);
+            }
+            
+            function closeContactFormHandler() {
+                contactFormOverlay.classList.add('opacity-0');
+                contactForm.classList.remove('translate-y-0');
+                contactForm.classList.add('translate-y-full');
+                setTimeout(() => {
+                    contactFormOverlay.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }, 300);
+            }
+            
+            contactButton.addEventListener('click', openContactForm);
+            closeContactForm.addEventListener('click', closeContactFormHandler);
+            contactFormOverlay.addEventListener('click', closeContactFormHandler);
+            
+            // Close with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !contactFormOverlay.classList.contains('hidden')) {
+                    closeContactFormHandler();
+                }
+            });
+         </script>
+      </footer>
+      <!-- Alpine.js Initialization -->
+
+      </body>
+   </html>
