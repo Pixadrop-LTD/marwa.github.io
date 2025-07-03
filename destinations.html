@@ -1408,59 +1408,6 @@
               </div>
           </div>
       </div>
-      <!-- Slide-out Contact Form -->
-      <div id="contactFormOverlay" class="fixed inset-0 bg-accent-yellow/10 bg-opacity-50 z-40 hidden opacity-0 transition-opacity duration-300" x-cloak></div>
-      <div id="contactForm" class="fixed bottom-0 right-0 w-full sm:max-w-md h-auto bg-white rounded-none sm:rounded-tl-3xl shadow-2xl transform translate-y-full transition-transform duration-300 ease-in-out z-50" x-cloak>
-          <div class="p-6">
-              <div class="flex justify-between items-center mb-6">
-                  <h3 class="text-2xl font-bold text-gray-900">Get in Touch</h3>
-                  <button id="closeContactForm" class="text-gray-400 hover:text-gray-600 focus:outline-none">
-                      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                  </button>
-              </div>
-              <form class="space-y-4">
-                  <div>
-                      <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                      <input type="text" id="name" name="name" required 
-                          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition duration-200"
-                          placeholder="John Doe">
-                  </div>
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                          <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                          <input type="email" id="email" name="email" required 
-                              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition duration-200"
-                              placeholder="your@email.com">
-                      </div>
-                      <div>
-                          <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                          <input type="tel" id="phone" name="phone"
-                              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition duration-200"
-                              placeholder="+1 (555) 123-4567">
-                      </div>
-                  </div>
-                  <div>
-                      <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
-                      <textarea id="message" name="message" rows="4" required
-                          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition duration-200"
-                          placeholder="How can we help you?"></textarea>
-                  </div>
-                  <div class="pt-2">
-                      <button type="submit" 
-                          class="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white font-semibold py-2.5 px-6 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
-                      Send Message
-                      </button>
-                  </div>
-              </form>
-          </div>
-          <div class="bg-gray-50 px-6 py-4 rounded-br-3xl">
-              <p class="text-xs text-gray-500 text-center">
-                  Or contact us directly at <a href="mailto:info@marwasafaris.africa" class="text-yellow-600 hover:underline">info@marwasafaris.africa</a>
-              </p>
-          </div>
-      </div>
   </footer>
   <!-- Back to Top Button -->
   <button id="backToTop" class="fixed bottom-8 right-8 bg-amber-600 text-white p-3 rounded-full shadow-lg transform transition-all duration-300 opacity-0 translate-y-20 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 z-40">
@@ -2091,5 +2038,60 @@
           }));
         });
       </script>
+      
+      <!-- Contact Form Script -->
+      <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          // Contact Form Toggle
+          const contactButton = document.getElementById('contactButton');
+          const contactForm = document.getElementById('contactForm');
+          const contactFormOverlay = document.getElementById('contactFormOverlay');
+          const closeContactForm = document.getElementById('closeContactForm');
+          
+          function openContactForm(e) {
+              e.preventDefault();
+              document.body.style.overflow = 'hidden';
+              contactFormOverlay.classList.remove('hidden');
+              contactForm.classList.remove('hidden');
+              setTimeout(() => {
+                  contactFormOverlay.classList.remove('opacity-0');
+                  contactForm.classList.remove('translate-y-full');
+                  contactForm.classList.add('translate-y-0');
+              }, 10);
+          }
+          
+          function closeContactFormHandler() {
+              contactFormOverlay.classList.add('opacity-0');
+              contactForm.classList.remove('translate-y-0');
+              contactForm.classList.add('translate-y-full');
+              setTimeout(() => {
+                  contactFormOverlay.classList.add('hidden');
+                  contactForm.classList.add('hidden');
+                  document.body.style.overflow = '';
+              }, 300);
+          }
+          
+          // Add event listeners with null checks
+          if (contactButton) {
+              contactButton.addEventListener('click', openContactForm);
+          }
+          
+          if (closeContactForm) {
+              closeContactForm.addEventListener('click', closeContactFormHandler);
+          }
+          
+          if (contactFormOverlay) {
+              contactFormOverlay.addEventListener('click', closeContactFormHandler);
+          }
+          
+          // Close with Escape key
+          document.addEventListener('keydown', (e) => {
+              if (e.key === 'Escape' && contactFormOverlay && !contactFormOverlay.classList.contains('hidden')) {
+                  closeContactFormHandler();
+              }
+          });
+      });
+      </script>
+      
       </body>
    </html>
