@@ -20,6 +20,8 @@
       <!-- Tailwind CSS v4 & Alpine.js v3 -->
       <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
       <script defer src="https://unpkg.com/alpinejs@3.14.9/dist/cdn.min.js"></script>
+      <!-- AOS CSS -->
+      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
       <!-- Custom Stylesheet -->
       <style type="text/tailwindcss">
          /* Custom Animations */
@@ -86,9 +88,11 @@
          [x-cloak] { display: none !important;}
       </style>
    </head>
-   <body class="relative font-sans text-text-primary bg-secondary-50 antialiased" x-data="{ animated: false }">
+   <body class="relative font-sans text-text-primary bg-secondary-50 antialiased" x-data="{ animated: false }" data-aos="fade-in">
       <!-- Alpine.js -->
       <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+      <!-- AOS JS -->
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
       <!-- Header & Navigation -->
       <header x-data="{
          mobileMenuOpen: false,
@@ -196,12 +200,12 @@
             </div>
          </div>
       </header>
-      <main class="relative overflow-hidden w-full">
+      <main class="relative overflow-hidden w-full" data-aos="fade-in">
          <div class="absolute bottom-0 right-0 -translate-x-1/2 -translate-y-1/2 bg-primary/30 rounded-full blur-3xl z-0" style="width: 2000px; height: 2000px;"></div>
          <div class="absolute top-0 left-0 translate-x-1/2 -translate-y-1/2 bg-accent-yellow/30 rounded-full blur-3xl z-0" style="width: 2000px; height: 2000px;"></div>
          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondary/10 rounded-full blur-3xl z-0" style="width: 2000px; height: 2000px;"></div>
          <!-- Hero Section with Two Columns -->
-         <section class="relative min-h-screen py-16 md:py-24 lg:py-32 z-30 px-4 sm:px-6 lg:px-8">
+         <section class="relative min-h-screen py-16 md:py-24 lg:py-32 z-30 px-4 sm:px-6 lg:px-8" data-aos="fade-up">
             <div class="absolute inset-0 -z-10">
                <div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent"></div>
             </div>
@@ -291,7 +295,7 @@
                            x-transition:enter-end="opacity-100 translate-y-0"
                            style="transition-delay: 100ms">
                            <span class="w-2 h-2 rounded-full bg-accent-yellow mr-2"></span>
-                           <span class="text-sm font-medium tracking-wider text-accent-yellow">PREMIUM SAFARI DESTINATIONS</span>
+                           <span class="text-sm font-medium text-accent-yellow tracking-wider">PREMIUM SAFARI DESTINATIONS</span>
                         </div>
                         
                         <!-- Main Heading -->
@@ -383,7 +387,7 @@
             </div>
          </section>
          <!-- Featured Destinations Section -->
-         <section class="relative z-20">
+         <section class="relative z-20" data-aos="fade-up" data-aos-delay="100">
             <!-- Decorative background elements -->
             <div class="absolute -top-24 -right-24 w-[600px] h-[600px] bg-primary/5 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
             <div class="absolute -bottom-24 -left-24 w-[500px] h-[500px] bg-accent-yellow/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
@@ -955,7 +959,7 @@
             </div>
          </section>
          <!-- Seasonal Wildlife Calendar Section -->
-         <section class="relative py-20">
+         <section class="relative py-20" data-aos="fade-up" data-aos-delay="200">
             <div class="absolute inset-0 opacity-5">
                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiNlZTc3MDAiIGZpbGwtb3BhY2l0eT0iMC4xIi8+Cjwvc3ZnPg==')]"></div>
             </div>
@@ -980,7 +984,7 @@
                   <div class="bg-gradient-to-r from-primary to-accent-yellow px-6 py-5">
                      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
                         <div class="mb-4 md:mb-0">
-                           <h3 class="text-2xl font-bold text-white">Wildlife Viewing Calendar</h3>
+                           <h3 class="text-lg font-medium text-white">Wildlife Viewing Calendar</h3>
                            <p class="text-yellow-100 text-sm mt-1">Select a month to see wildlife highlights</p>
                         </div>
                         <div class="relative w-full md:w-auto">
@@ -1006,7 +1010,7 @@
                               </select>
                               <button class="px-4 py-2 text-sm font-medium text-white rounded-md bg-white/20 hover:bg-white/30 transition-colors">
                                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7m0 0l-7 7m7-7H3" />
                                  </svg>
                               </button>
                            </div>
@@ -1020,7 +1024,7 @@
                      <div class="p-6">
                         <h4 class="text-lg font-bold text-gray-900 mb-4 flex items-center">
                            <svg class="w-5 h-5 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                              <path fill-rule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116a1 1 0 01-1.955.46 1 1 0 00-1.2-.8 1 1 0 00-.8 1.2 1 1 0 01-.46 1.955 1 1 0 00-.53 1.5 1 1 0 01.53 1.5 1 1 0 00.46 1.955 1 1 0 011.2.8 1 1 0 001.955.46 1 1 0 011.116.57c.23.345.535.615.88.822a1 1 0 001.5-.53 1 1 0 011.5-.53c.345.207.614.477.822.822a1 1 0 001.5.53 1 1 0 01.8-1.2 1 1 0 00.46-1.955 1 1 0 01.53-1.5 1 1 0 00-.53-1.5 1 1 0 01-.46-1.955 1 1 0 01.53-1.5 1 1 0 00.53-1.5 1 1 0 00-.53-1.5 1 1 0 01-.46-1.955 1 1 0 01.53-1.5 1 1 0 00.53-1.5 1 1 0 00-.53-1.5 1 1 0 01-.46-1.955 1 1 0 01.53-1.5z" clip-rule="evenodd" />
+                              <path fill-rule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116a1 1 0 01-1.955.46 1 1 0 00-1.2-.8 1 1 0 00-.8 1.2 1 1 0 01-.46 1.955 1 1 0 00-.53 1.5 1 1 0 00.53 1.5 1 1 0 00.46 1.955 1 1 0 011.2.8 1 1 0 001.955.46 1 1 0 011.116.57c.23.345.535.615.88.822a1 1 0 001.5-.53 1 1 0 011.5-.53c.345.207.614.477.822.822a1 1 0 001.5.53 1 1 0 01.8-1.2 1 1 0 00.46-1.955 1 1 0 01.53-1.5 1 1 0 00-.53-1.5 1 1 0 01-.46-1.955 1 1 0 01.53-1.5 1 1 0 00.53-1.5 1 1 0 00-.53-1.5 1 1 0 01-.46-1.955 1 1 0 01.53-1.5 1 1 0 00.53-1.5 1 1 0 00-.53-1.5 1 1 0 01-.46-1.955 1 1 0 01.53-1.5z" clip-rule="evenodd" />
                            </svg>
                            Wildlife Highlights
                         </h4>
@@ -1049,7 +1053,7 @@
                      <!-- Weather Conditions -->
                      <div class="p-6 border-t md:border-t-0">
                         <h4 class="text-lg font-bold text-gray-900 mb-4 flex items-center">
-                           <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                           <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                            </svg>
                            Weather & Conditions
@@ -1122,7 +1126,7 @@
                            <p class="mt-1 text-sm text-gray-500">Download our complete wildlife calendar for the entire year</p>
                         </div>
                         <button type="button" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500">
-                           <svg class="-ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <svg class="-ml-1 mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                            </svg>
                            Download Wildlife Calendar
@@ -1133,7 +1137,7 @@
             </div>
          </section>
          <!-- Footer CTA Section -->
-         <section class="relative py-24 bg-gradient-to-br from-primary/5 via-white to-accent-yellow/5">
+         <section class="relative py-24 bg-gradient-to-br from-primary/5 via-white to-accent-yellow/5" data-aos="fade-up" data-aos-delay="300">
             <div class="absolute inset-0 opacity-5">
                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiNlZTc3MDAiIGZpbGwtb3BhY2l0eT0iMC4xIi8+Cjwvc3ZnPg==')]"></div>
             </div>
@@ -1901,6 +1905,18 @@
       
       <!-- Alpine.js Component for Destination Filtering -->
       <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                mirror: false,
+                offset: 50,
+                delay: 100
+            });
+        });
+
         document.addEventListener('alpine:init', () => {
           Alpine.data('filterDestinations', () => ({
             // Search and active tab

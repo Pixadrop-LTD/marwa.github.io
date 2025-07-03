@@ -24,6 +24,11 @@
     <!-- Tailwind CSS v4 & Alpine.js v3 -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script defer src="https://unpkg.com/alpinejs@3.14.9/dist/cdn.min.js"></script>
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <!-- Custom Stylesheet -->
     <style type="text/tailwindcss">
@@ -194,12 +199,12 @@
         </div>
     </header>
 
-    <main class="relative overflow-hidden w-full">
+    <main class="relative overflow-hidden w-full" data-aos="fade-in">
         <div class="absolute bottom-0 right-0 -translate-x-1/2 -translate-y-1/2 bg-primary/30 rounded-full blur-3xl z-0" style="width: 2000px; height: 2000px;"></div>
         <div class="absolute top-0 left-0 translate-x-1/2 -translate-y-1/2 bg-accent-yellow/30 rounded-full blur-3xl z-0" style="width: 2000px; height: 2000px;"></div>
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondary/10 rounded-full blur-3xl z-0" style="width: 2000px; height: 2000px;"></div>
         <!-- Hero Section -->
-        <section class="relative py-32 lg:py-40">
+        <section class="relative py-32 lg:py-40" data-aos="fade-up" data-aos-delay="100">
             <!-- Decorative elements -->
             <div class="absolute inset-0 z-0 opacity-30">
                 <div class="absolute -top-20 -right-20 w-96 h-96 bg-accent-yellow/10 rounded-full"></div>
@@ -209,7 +214,7 @@
             <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
                     <!-- Left Column - Content --> 
-                    <div class="text-center lg:text-left">
+                    <div class="text-center lg:text-left" data-aos="fade-right" data-aos-delay="200">
                         <span class="inline-block px-4 py-1.5 text-sm font-semibold tracking-wider text-amber-700 bg-amber-100 rounded-full mb-6 border border-amber-200">
                             LUXURY SAFARI ADVENTURES
                         </span>
@@ -264,7 +269,7 @@
                     </div>
                     
                     <!-- Right Column - Image Grid -->
-                    <div class="relative h-full min-h-[500px] hidden lg:block">
+                    <div class="relative h-full min-h-[500px] hidden lg:block" data-aos="fade-left" data-aos-delay="300">
                         <!-- Main Image -->
                         <div class="absolute top-0 right-0 w-3/4 h-2/3 rounded-2xl overflow-hidden shadow-2xl transform rotate-1 group">
                             <img src="https://images.pexels.com/photos/247502/pexels-photo-247502.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
@@ -302,7 +307,7 @@
         </section>
 
         <!-- Popular Experiences -->
-        <section id="popular-experiences" class="relative py-10">
+        <section id="popular-experiences" class="relative py-10" data-aos="fade-up" data-aos-delay="100">
             <!-- Decorative elements -->
             <div class="absolute inset-0">
                 <div class="absolute -top-32 -right-32 w-96 h-96 bg-amber-100/50 rounded-full mix-blend-multiply filter blur-3xl"></div>
@@ -434,7 +439,7 @@
         </section>
 
         <!-- Signature Experiences -->
-        <section x-data="{
+        <section data-aos="fade-up" data-aos-delay="100" x-data="{
             activeTab: 0,
             tabs: [
                 {
@@ -637,7 +642,7 @@
         </section>
 
         <!-- Book Experience CTA - Enhanced -->
-        <section class="relative py-28">
+        <section class="relative py-28" data-aos="fade-up" data-aos-delay="100">
             <!-- Animated Background Elements -->
             <div class="absolute inset-0 opacity-30">
                 <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTUwIDI1YzAgMTMuODA3LTExLjE5MyAyNS0yNSAyNXMtMjUtMTEuMTkzLTI1LTI1UzExLjE5MyAwIDI1IDBzMjUgMTEuMTkzIDI1IDI1eiIgZmlsbD0iI0ZCN0EwMCIgZmlsbC1vcGFjaXR5PSIwLjA1Ii8+Cjwvc3ZnPg==')] animate-[pulse_20s_infinite]"></div>
@@ -814,7 +819,7 @@
         </section>
 
         <!-- All Experiences Section -->
-        <section x-data="experiences" id="all-experiences" class="py-20">
+        <section x-data="experiences" id="all-experiences" class="py-20" data-aos="fade-up" data-aos-delay="100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Section Header -->
                 <div class="text-center mb-12">
@@ -935,7 +940,7 @@
                 </div>
 
                 <!-- Experience Cards -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-6" data-aos="fade-up" data-aos-delay="200">
                     <template x-for="experience in filteredExperiences" :key="experience.id">
                         <div 
                             x-show="activeTab === 'all' || experience.category === activeTab"
@@ -1038,7 +1043,7 @@
         <!--End All Experiences-->
 
         <!-- Testimonials Grid -->
-        <section id="testimonials" class="relative py-20 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
+        <section id="testimonials" class="relative py-20 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
             <!-- Decorative Elements -->
             <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
                 <div class="absolute -top-32 -left-32 w-64 h-64 bg-amber-400 rounded-full mix-blend-multiply filter blur-xl"></div>
@@ -1488,6 +1493,18 @@
                     });
                 });
             }
+        });
+
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true,
+                mirror: false,
+                offset: 50,
+                delay: 100
+            });
         });
 
         // Alpine.js Component

@@ -17,8 +17,25 @@
         <!-- Tailwind CSS v4 & Alpine.js v3 -->
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
         <script defer src="https://unpkg.com/alpinejs@3.14.9/dist/cdn.min.js"></script>
+        
+        <!-- AOS CSS -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <!-- AOS JS -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <!-- Alpine.js Store for Modal State -->
         <script>
+            // Initialize AOS
+            document.addEventListener('DOMContentLoaded', function() {
+                AOS.init({
+                    duration: 800,
+                    easing: 'ease-in-out',
+                    once: true,
+                    mirror: false,
+                    offset: 50,
+                    delay: 100
+                });
+            });
+
             document.addEventListener('alpine:init', () => {
                 Alpine.store('destinationModal', {
                     isOpen: false,
@@ -207,7 +224,7 @@
             <div class="absolute bottom-0 left-0 -translate-x-1/2 -translate-y-1/2 bg-primary/30 rounded-full blur-3xl z-0" style="width: 2000px; height: 2000px;"></div>
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondary/10 rounded-full blur-3xl z-0" style="width: 2000px; height: 2000px;"></div>
             <!-- Hero Section -->
-            <section class="relative min-h-screen pt-28 pb-16 flex items-center justify-center text-white overflow-hidden z-20">
+            <section class="relative py-32 md:py-40 flex items-center justify-center text-white overflow-hidden z-20" data-aos="fade-in">
                 <div class="absolute inset-0 z-0 bg-gradient-to-br from-primary via-primary to-secondary">
                     <!-- Decorative elements -->
                     <div class="absolute inset-0 opacity-20">
@@ -367,7 +384,7 @@
                 </div>
             </section>
             <!-- Marwa's Introduction -->
-            <section id="marwa-intro" class="py-24 md:py-32 relative">
+            <section id="marwa-intro" class="py-24 md:py-32 relative" data-aos="fade-up" data-aos-delay="100">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                     <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
                         <!-- Featured Image -->
@@ -470,7 +487,7 @@
                 </div>
             </section>
             <!-- Marwa Difference -->
-            <section class="relative py-24 md:py-32 z-20">
+            <section class="relative py-24 md:py-32 z-20" data-aos="fade-up" data-aos-delay="100">
                 <!-- Decorative elements -->
                 <div class="absolute inset-0 overflow-hidden">
                     <div class="absolute -top-20 -right-20 w-64 h-64 bg-accent-yellow/10 rounded-full filter blur-3xl"></div>
@@ -588,7 +605,7 @@
                 </div>
             </section>
             <!-- Destinations Showcase -->
-            <section class="relative py-24 overflow-hidden z-20 " x-data>
+            <section class="relative py-24 overflow-hidden z-20" x-data data-aos="fade-up" data-aos-delay="100">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                     <!-- Section Header -->
                     <div class="text-center mb-20 relative z-10">
@@ -936,7 +953,7 @@
                 </div>
             </div>
             <!-- Wildlife Calendar -->
-            <section class="py-24 relative overflow-hidden z-10 ">
+            <section class="py-24 relative overflow-hidden z-10" data-aos="fade-up" data-aos-delay="100">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                     <div class="text-center mb-16">
                         <div class="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-yellow-50 border border-yellow-100 mb-6 transform transition-all duration-500 hover:shadow-md hover:-translate-y-0.5 group">
